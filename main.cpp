@@ -1,9 +1,13 @@
 #include <iostream>
+#include "menu.h"
 
 using namespace std;
 
-int main() {
+int	main(void)
+{
+	Menu menu;
 
-    cout << "Hello, World!" << endl;
-    return 0;
+	menu.show();
+	menu.askOption();
+	return 0;
 }

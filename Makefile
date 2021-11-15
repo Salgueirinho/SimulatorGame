@@ -12,6 +12,6 @@ $(NAME):
 	$(CC) $(FLAGS) $(SOURCES) -o $(NAME)
 
 clean:
-	@rm $(NAME)
+	@rm -f ./$(NAME)
 
 re: clean $(NAME)
