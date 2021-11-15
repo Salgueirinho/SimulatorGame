@@ -6,12 +6,10 @@ CC = g++
 
 CFLAGS = -Wall -Werror -Wextra
 
-all: $(NAME)
+all: clean $(NAME)
 
 $(NAME):
 	$(CC) $(FLAGS) $(SOURCES) -o $(NAME)
 
 clean:
 	@rm -f ./$(NAME)
-
-re: clean $(NAME)
