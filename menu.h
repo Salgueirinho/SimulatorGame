@@ -8,6 +8,7 @@ class Menu
 	public:
 		// here go public methods and attributes
 		void	show(void);
+		void	showInstructions(void);
 		int		askOption(void);
 		bool	validateOption(int option);
 };

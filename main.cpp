@@ -8,6 +8,13 @@ int	main(void)
 	Menu menu;
 
 	menu.show();
-	menu.askOption();
+	switch(menu.askOption())
+	{
+		case 1:
+			break;
+		case 2:
+			menu.showInstructions();
+			break;
+	}
 	return 0;
 }

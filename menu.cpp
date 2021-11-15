@@ -1,22 +1,21 @@
 #include <iostream>
 #include <sstream>
+#include <string>
+#include "file.h"
 #include "menu.h"
 
 using namespace std;
 
 void	Menu::show(void)
 {
-	cout << endl;
-	cout << "### # ### # # #   #  ##   #  ## " << endl;
-	cout << "#   # # # # # #  # # # # # # # #" << endl;
-	cout << "### # # # # # #  ### # # # # ## " << endl;
-	cout << "  # # # # # # #  # # # # # # # #" << endl;
-	cout << "### # # #  #  ## # # ##   #  # #" << endl;
-	cout << endl;
-	cout << "Choose one of the following options:" << endl;
-	cout << "(1) -> Play game" << endl;
-	cout << "(2) -> Show instructions" << endl;
-	cout << "(3) -> ..." << endl;
+	File file;
+	file.display("mainmenu");
+}
+
+void	Menu::showInstructions(void)
+{
+	File file;
+	file.display("instructions");
 }
 
 int	Menu::askOption(void)
