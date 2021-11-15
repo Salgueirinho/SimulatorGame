@@ -3,4 +3,4 @@ project(Trabalho_Pratico_POO)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Trabalho_Pratico_POO main.cpp)
+add_executable(Trabalho_Pratico_POO main.cpp file.cpp file.h menu.cpp menu.h)
