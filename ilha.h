@@ -11,18 +11,16 @@ using namespace std;
 		the class Trabalhador, and others.
 */
 
-class Zona {
-	private:
-		string zone_type;
-	public:
-		Zona(string zone_type);
-};
-
 class Ilha {
 	private:
 		int	linhas;
 		int	colunas;
-		vector<vector<Zona>> zonas;
+		/*
+			vector<vector<Zona>> zonas;
+
+			Can't implement this yet.
+		*/
+		vector<vector<string>> zonas;
 	public:
 		Ilha(int linhas, int colunas);
 };

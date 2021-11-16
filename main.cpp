@@ -17,5 +17,6 @@ int	main(void)
 			menu.showInstructions();
 			break;
 	}
+	Ilha ilha(3, 4);
 	return 0;
 }
