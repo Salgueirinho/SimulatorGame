@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "zona.h"
 
 using namespace std;
 
@@ -15,14 +16,11 @@ class Ilha {
 	private:
 		int	linhas;
 		int	colunas;
-		/*
-			vector<vector<Zona>> zonas;
-
-			Can't implement this yet.
-		*/
-		vector<vector<string>> zonas;
 	public:
+		vector<vector<Zona>> zonas;
 		Ilha(int linhas, int colunas);
+		void setZoneTypes(void);
+		void displayZones(void);
 };
 
 #endif // ILHA_H

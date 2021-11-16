@@ -1,6 +1,7 @@
 #include <iostream>
 #include "menu.h"
 #include "ilha.h"
+#include <ctime>
 
 using namespace std;
 
@@ -17,6 +18,9 @@ int	main(void)
 			menu.showInstructions();
 			break;
 	}
-	Ilha ilha(3, 4);
+	srand((unsigned) time(0));
+	Ilha ilha(4, 4);
+	ilha.setZoneTypes();
+	ilha.displayZones();
 	return 0;
 }
