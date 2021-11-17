@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
-#include <algorithm>
 #include "interface.h"
+#include "comando.h"
 #include "ilha.h"
 
 using namespace std;
@@ -9,6 +9,7 @@ using namespace std;
 void	Interface::startSimulation(void)
 {
 	Interface interface;
+	Comando comando;
 	int	lines;
 	int	columns;
 
@@ -33,7 +34,7 @@ void	Interface::startSimulation(void)
 	while (1)
 	{
 		ilha.displayZones();
-		interface.command();
+		comando.command();
 	}
 }
 
@@ -55,17 +56,4 @@ int		Interface::getNumber(void)
 		}
 	}
 	return (n);
-}
-
-void	Interface::command(void)
-{
-	string	command;
-	vector<string> commands {"exec", "cons", "ligia", "des", "move", "vende", "cont", "list", "next", "save", "load", "apaga", "config", "debcash", "debed", "debkill"};
-	while (!count(commands.begin(), commands.end(), command))
-	{
-		cout << "command: ";
-		cin >> command;
-		if (!count(commands.begin(), commands.end(), command))
-			cout << "Please insert a valid command" << endl;
-	}
 }
