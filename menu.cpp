@@ -21,8 +21,8 @@ void	Menu::showInstructions(void)
 int	Menu::askOption(void)
 {
 	string	option_string;
-	int	option = 0;
-	int	validity = 0;
+	int			option = 0;
+	bool		validity = false;
 
 	while (validity != 1)
 	{
