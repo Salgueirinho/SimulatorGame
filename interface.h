@@ -8,6 +8,7 @@ class	Interface
 	public:
 		void	startSimulation(void);
 		int		getNumber(void);
+		void	command(void);
 };
 
 #endif // INTERFACE_
