@@ -1,9 +1,5 @@
-//
-// Created by gonca on 15/11/2021.
-//
-
-#ifndef TRABALHO_PRATICO_POO_EDIFICIO_H
-#define TRABALHO_PRATICO_POO_EDIFICIO_H
+#ifndef EDIFICIO_H
+#define EDIFICIO_H
 
 #include <string>
 
@@ -21,4 +17,4 @@ public:
 
 };
 
-#endif //TRABALHO_PRATICO_POO_EDIFICIO_H
+#endif //EDIFICIO_H

@@ -1,7 +1,3 @@
-//
-// Created by gonca on 15/11/2021.
-//
-
 #include "edificio.h"
 
 void Edificio::setType(string type) {
