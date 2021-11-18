@@ -2,8 +2,8 @@
 // Created by gonca on 15/11/2021.
 //
 
-#ifndef TRABALHO_PRATICO_POO_TRABALHADOR_H
-#define TRABALHO_PRATICO_POO_TRABALHADOR_H
+#ifndef TRABALHADOR_H
+#define TRABALHADOR_H
 
 #include <string>
 
@@ -17,4 +17,4 @@ public:
 
 };
 
-#endif //TRABALHO_PRATICO_POO_TRABALHADOR_H
+#endif //TRABALHADOR_H
