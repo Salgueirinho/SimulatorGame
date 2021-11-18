@@ -9,7 +9,6 @@ using namespace std;
 void	Interface::startSimulation(void)
 {
 	Interface interface;
-	Comando comando;
 	int	lines;
 	int	columns;
 
@@ -34,7 +33,7 @@ void	Interface::startSimulation(void)
 	while (1)
 	{
 		ilha.displayZones();
-		comando.command();
+		interface.tryExecuteCommand();
 	}
 }
 
@@ -56,4 +55,68 @@ int		Interface::getNumber(void)
 		}
 	}
 	return (n);
+}
+
+void	Interface::tryExecuteCommand(void)
+{
+	string					command_args;
+	int							success = 0;
+	int							index = -1;
+
+	while (success == 0)
+	{
+		cout << "Command: ";
+		
+		getline(cin >> ws, command_args);
+		vector<string> command_args_ = split(command_args);
+		index = getCommandIndex(command_args_[0]);
+		if (index >= 0)
+		{
+			cout << "This command is valid. Congrats!" << endl;
+			Command &command = commands[index];
+			command_args_.erase(command_args_.begin());
+			success = validateArguments(command, command_args_);
+			if (success)
+			{
+				cout << "The number of arguments provided is correct. Congrats!" << endl;
+			}
+			else
+			{
+				cout << "The number of arguments provided is incorrect. Try again!" << endl;
+			}
+		}
+		else
+		{
+			cout << "This command is invalid. Try again!" << endl;
+		}
+	}
+}
+
+vector<string> Interface::split(const string &s)
+{
+		vector<string> result;
+		stringstream ss (s);
+		string item;
+
+		while (getline (ss, item, ' ')) {
+			result.push_back (item);
+		}
+		return (result);
+}
+
+int		Interface::getCommandIndex(string command)
+{
+	for (int i = 0; i < commands.size(); i++) {
+		if (commands[i].getName().compare(command) == 0)
+			return (i);
+	}
+	return (-1);
+}
+
+bool	Interface::validateArguments(Command &command, vector<string> arguments)
+{
+	if (command.getArgs().size() == arguments.size())
+		return (true);
+	else
+		return (false);
 }
