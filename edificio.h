@@ -13,8 +13,11 @@ class Edificio{
     string type;
     int valor_construcao;
 public:
-    Edificio(string type);
-    void setValor_Construcao(int valor_construcao);
+    void setType(string type);
+    void setValorConstrucao(int valor_construcao);
+    int getValorConstrucao(void) const;
+    string getType(void) const;
+
 
 };
 
