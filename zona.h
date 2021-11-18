@@ -2,15 +2,17 @@
 #define ZONA_H
 
 #include <string>
+#include "edificio.h"
 
 using namespace std;
 
 class Zona {
 	private:
 		string zone_type;
+    int eficiencia_mineracao;
 	public:
 		void setZone(string zone_type);
-		string	getZone(void);
+		string getZone(void) const;
 	/*
 		Zona(string zone_type);
 
