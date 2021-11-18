@@ -27,7 +27,7 @@ void Ilha::setZoneTypes(void)
 	}
 }
 
-void Ilha::displayZones(void)
+void Ilha::display(void)
 {
 	for (int i = 0; i < this->zonas.size(); i++)
 	{

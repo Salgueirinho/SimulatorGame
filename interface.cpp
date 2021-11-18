@@ -32,7 +32,7 @@ void	Interface::startSimulation(void)
 	ilha.setZoneTypes();
 	while (1)
 	{
-		ilha.displayZones();
+		ilha.display();
 		interface.tryExecuteCommand();
 	}
 }
