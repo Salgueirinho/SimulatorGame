@@ -17,7 +17,7 @@ Ilha::Ilha(int linhas, int colunas)
 
 void Ilha::setZoneTypes(void)
 {
-	string arr[] = {"Deserto", "Pastagem", "Floresta", "Montanha", "Pantano", "Zona-X"};
+	string arr[] = {"dsr", "pas", "flr", "mnt", "pnt", "znZ"};
 	for (int i = 0; i < this->zonas.size(); i++)
 	{
 		for (int j = 0; j < this->zonas[i].size(); j++)
@@ -30,11 +30,22 @@ void Ilha::setZoneTypes(void)
 void Ilha::display(void)
 {
 	for (int i = 0; i < this->zonas.size(); i++)
+  {
+    cout << "_____";
+  }
+  cout << endl;
+  for (int i = 0; i < this->zonas.size(); i++)
 	{
 		for (int j = 0; j < this->zonas[i].size(); j++)
 		{
-			cout << zonas[i][j].getZone() << " ";
+			cout << "|" << zonas[i][j].getZone() << " ";
 		}
-		cout << endl;
-	}
+		cout << "|" << endl;
+	
+	  for (int i = 0; i < this->zonas.size(); i++)
+    {
+      cout << "_____";
+    }
+    cout << endl;
+  }
 }
