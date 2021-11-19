@@ -2,17 +2,24 @@
 #define ZONA_H
 
 #include <string>
+#include <vector>
 #include "edificio.h"
+#include "trabalhador.h"
 
 using namespace std;
 
 class Zona {
 	private:
 		string zone_type;
+		Edificio edificio;
     static	int eficiencia_mineracao;
+		vector<Trabalhador> trabalhadores;
 	public:
 		void setZone(string zone_type);
-		string getZone(void) const;
+		string	getZone(void) const;
+		string	getEdificio(void) const;
+		int	getNumberTrabalhadores(void) const;
+		string	getTrabalhadores(void) const;
 };
 
 class Pastagem : public Zona {

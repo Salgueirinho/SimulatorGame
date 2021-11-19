@@ -11,3 +11,8 @@ Trabalhador::Trabalhador(string type) {
 void Trabalhador::setValor_Contratacao(int valor_contratacao) {
     this->valor_contratacao = valor_contratacao;
 }
+
+string	Trabalhador::getType(void) const
+{
+	return type;
+}

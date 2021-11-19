@@ -30,22 +30,26 @@ void Ilha::setZoneTypes(void)
 void Ilha::display(void)
 {
 	for (int i = 0; i < this->zonas.size(); i++)
-  {
-    cout << "_____";
-  }
-  cout << endl;
-  for (int i = 0; i < this->zonas.size(); i++)
+	{
+		cout << "_____";
+	}
+	cout << endl;
+	for (int i = 0; i < this->zonas.size(); i++)
 	{
 		for (int j = 0; j < this->zonas[i].size(); j++)
 		{
 			cout << "|" << zonas[i][j].getZone() << " ";
 		}
 		cout << "|" << endl;
-	
+		for (int j = 0; j < this->zonas[i].size(); j++)
+		{
+			cout << "|" << zonas[i][j].getEdificio() << " ";
+		}
+		cout << "|" << endl;	
 	  for (int i = 0; i < this->zonas.size(); i++)
     {
       cout << "_____";
     }
-    cout << endl;
+    cout << "|" << endl;
   }
 }
