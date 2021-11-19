@@ -16,6 +16,7 @@ class Zona {
 		vector<Trabalhador> trabalhadores;
 	public:
 		void setZone(string zone_type);
+		void setEdificio(string edificio_type);
 		string	getZone(void) const;
 		string	getEdificio(void) const;
 		int	getNumberTrabalhadores(void) const;

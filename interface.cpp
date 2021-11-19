@@ -33,7 +33,7 @@ void	Interface::startSimulation(void)
 	while (1)
 	{
 		ilha.display();
-		interface.tryExecuteCommand();
+		interface.tryExecuteCommand(ilha);
 	}
 }
 
@@ -57,13 +57,44 @@ int		Interface::getNumber(void)
 	return (n);
 }
 
-void	Interface::tryExecuteCommand(void)
+bool	Interface::executeCommand(string command, vector<string> args, Ilha& ilha)
+{
+	vector<int>	int_args;
+	int			buffer;
+	if (command.compare("cons") == 0)
+	{
+		if (args[0].compare("minaferro"))
+		{
+			cout << "First argument (type of building) provided in the wrong format." << endl;
+			return false;
+		}
+		stringstream ss(args[1]);
+		ss >> buffer;
+		int_args.push_back(buffer);
+		if (ss.fail())
+		{
+			cout << "Second argument (X coordinate) provided in the wrong format." << endl;
+			return false;
+		}
+		stringstream ss2(args[2]);
+		ss2 >> buffer;
+		int_args.push_back(buffer);
+		if (ss.fail())
+		{
+			cout << "Third argument (Y coordinate) provided in the wrong format." << endl;
+			return false;
+		}
+		ilha.zonas[int_args[0] - 1][int_args[1] - 1].setEdificio("mnF");
+	}
+	return true;
+}
+
+void	Interface::tryExecuteCommand(Ilha& ilha)
 {
 	string					command_args;
-	int							success = 0;
 	int							index = -1;
 
-	while (success == 0)
+	while (1)
 	{
 		cout << "Command: ";
 		
@@ -75,10 +106,18 @@ void	Interface::tryExecuteCommand(void)
 			cout << "This command is valid. Congrats!" << endl;
 			Command &command = commands[index];
 			command_args_.erase(command_args_.begin());
-			success = validateArguments(command, command_args_);
-			if (success)
+			if (validateArguments(command, command_args_))
 			{
 				cout << "The number of arguments provided is correct. Congrats!" << endl;
+				if (executeCommand(command.getName(), command_args_, ilha))
+				{
+					cout << "The command was succesfully executed." << endl;
+					break;
+				}
+				else
+				{
+					cout << "The command couldn't be executed." << endl;
+				}
 			}
 			else
 			{

@@ -2,6 +2,7 @@
 #define INTERFACE_H
 
 #include <vector>
+#include "ilha.h"
 #include "comando.h"
 
 using namespace std;
@@ -29,7 +30,8 @@ class	Interface
 	public:
 		void	startSimulation(void);
 		int		getNumber(void);
-		void	tryExecuteCommand(void);
+		void	tryExecuteCommand(Ilha& ilha);
+		bool	executeCommand(string command, vector<string> args, Ilha& ilha);
 		bool	validateArguments(Command &c, vector<string> arguments);
 		int		getCommandIndex(string command);
 		vector<string> split(const string &s);

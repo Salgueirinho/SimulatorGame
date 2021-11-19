@@ -32,7 +32,7 @@ void Ilha::display(void)
 	int	n = 0;
 	string buf;
 
-	for (int i = 0; i < this->zonas.size(); i++)
+	for (int i = 0; i < this->zonas[0].size(); i++)
 	{
 		cout << "_____";
 	}
@@ -48,7 +48,7 @@ void Ilha::display(void)
 		{
 			cout << "|" << zonas[i][j].getEdificio() << " ";
 		}
-		cout << "|" << endl;	
+		cout << "|" << endl;
 		for (int j = 0; j < this->zonas[i].size(); j++)
 		{
 			buf = zonas[i][j].getTrabalhadores();
@@ -72,8 +72,8 @@ void Ilha::display(void)
 			else if (9 < n && n < 100)
 				cout << "|" << n << "  ";
 		}
-		cout << "|" << endl;	
-	  for (int i = 0; i < this->zonas.size(); i++)
+		cout << "|" << endl;
+	  for (int i = 0; i < this->zonas[0].size(); i++)
     {
       cout << "_____";
     }

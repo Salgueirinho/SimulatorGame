@@ -7,6 +7,11 @@ void Zona::setZone(string zone_type)
 	this->zone_type = zone_type;
 }
 
+void Zona::setEdificio(string edificio_type)
+{
+	this->edificio.setType(edificio_type);
+}
+
 string	Zona::getZone(void) const
 {
 	return zone_type;
