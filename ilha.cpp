@@ -29,6 +29,9 @@ void Ilha::setZoneTypes(void)
 
 void Ilha::display(void)
 {
+	int	n = 0;
+	string buf;
+
 	for (int i = 0; i < this->zonas.size(); i++)
 	{
 		cout << "_____";
@@ -44,6 +47,30 @@ void Ilha::display(void)
 		for (int j = 0; j < this->zonas[i].size(); j++)
 		{
 			cout << "|" << zonas[i][j].getEdificio() << " ";
+		}
+		cout << "|" << endl;	
+		for (int j = 0; j < this->zonas[i].size(); j++)
+		{
+			buf = zonas[i][j].getTrabalhadores();
+			if (buf.size() == 0)
+				cout << "|" << buf << "    ";
+			else if (buf.size() == 1)
+				cout << "|" << buf << "   ";
+			else if (buf.size() == 2)
+				cout << "|" << buf << "  ";
+			else if (buf.size() == 3)
+				cout << "|" << buf << " ";
+			else if (buf.size() == 4)
+				cout << "|" << buf;
+		}
+		cout << "|" << endl;	
+		for (int j = 0; j < this->zonas[i].size(); j++)
+		{
+			n = zonas[i][j].getNumberTrabalhadores();
+			if (n < 10)
+				cout << "|" << n << "   ";
+			else if (9 < n && n < 100)
+				cout << "|" << n << "  ";
 		}
 		cout << "|" << endl;	
 	  for (int i = 0; i < this->zonas.size(); i++)
