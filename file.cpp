@@ -35,7 +35,7 @@ vector<string> File::readFile(string filepath){
   fs.open(filepath);
   if(!fs){
     cout << "Ficheiro de configuração não existe" << endl;
-    return string_vector;
+    return {};
   }
   while (getline(fs,line)){
     string_vector.push_back(line);
