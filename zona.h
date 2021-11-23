@@ -21,6 +21,7 @@ class Zona {
 		string	getEdificio(void) const;
 		int	getNumberTrabalhadores(void) const;
 		string	getTrabalhadores(void) const;
+        void setTrabalhador(Trabalhador worker);
 };
 
 class Pastagem : public Zona {

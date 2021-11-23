@@ -64,16 +64,6 @@ CMAKE_BINARY_DIR = D:\Windows\POO\Trabalho-Pratico-POO\cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -83,6 +73,16 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -116,24 +116,144 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Trabalho_Pratico_POO
+# Target rules for targets named SIMULADORpoo
 
 # Build rule for target.
-Trabalho_Pratico_POO: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Trabalho_Pratico_POO
-.PHONY : Trabalho_Pratico_POO
+SIMULADORpoo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SIMULADORpoo
+.PHONY : SIMULADORpoo
 
 # fast build rule for target.
-Trabalho_Pratico_POO/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico_POO.dir\build.make CMakeFiles/Trabalho_Pratico_POO.dir/build
-.PHONY : Trabalho_Pratico_POO/fast
+SIMULADORpoo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/build
+.PHONY : SIMULADORpoo/fast
+
+comando.obj: comando.cpp.obj
+.PHONY : comando.obj
+
+# target to build an object file
+comando.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/comando.cpp.obj
+.PHONY : comando.cpp.obj
+
+comando.i: comando.cpp.i
+.PHONY : comando.i
+
+# target to preprocess a source file
+comando.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/comando.cpp.i
+.PHONY : comando.cpp.i
+
+comando.s: comando.cpp.s
+.PHONY : comando.s
+
+# target to generate assembly for a file
+comando.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/comando.cpp.s
+.PHONY : comando.cpp.s
+
+edificio.obj: edificio.cpp.obj
+.PHONY : edificio.obj
+
+# target to build an object file
+edificio.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/edificio.cpp.obj
+.PHONY : edificio.cpp.obj
+
+edificio.i: edificio.cpp.i
+.PHONY : edificio.i
+
+# target to preprocess a source file
+edificio.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/edificio.cpp.i
+.PHONY : edificio.cpp.i
+
+edificio.s: edificio.cpp.s
+.PHONY : edificio.s
+
+# target to generate assembly for a file
+edificio.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/edificio.cpp.s
+.PHONY : edificio.cpp.s
+
+file.obj: file.cpp.obj
+.PHONY : file.obj
+
+# target to build an object file
+file.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/file.cpp.obj
+.PHONY : file.cpp.obj
+
+file.i: file.cpp.i
+.PHONY : file.i
+
+# target to preprocess a source file
+file.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/file.cpp.i
+.PHONY : file.cpp.i
+
+file.s: file.cpp.s
+.PHONY : file.s
+
+# target to generate assembly for a file
+file.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/file.cpp.s
+.PHONY : file.cpp.s
+
+ilha.obj: ilha.cpp.obj
+.PHONY : ilha.obj
+
+# target to build an object file
+ilha.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/ilha.cpp.obj
+.PHONY : ilha.cpp.obj
+
+ilha.i: ilha.cpp.i
+.PHONY : ilha.i
+
+# target to preprocess a source file
+ilha.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/ilha.cpp.i
+.PHONY : ilha.cpp.i
+
+ilha.s: ilha.cpp.s
+.PHONY : ilha.s
+
+# target to generate assembly for a file
+ilha.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/ilha.cpp.s
+.PHONY : ilha.cpp.s
+
+interface.obj: interface.cpp.obj
+.PHONY : interface.obj
+
+# target to build an object file
+interface.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/interface.cpp.obj
+.PHONY : interface.cpp.obj
+
+interface.i: interface.cpp.i
+.PHONY : interface.i
+
+# target to preprocess a source file
+interface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/interface.cpp.i
+.PHONY : interface.cpp.i
+
+interface.s: interface.cpp.s
+.PHONY : interface.s
+
+# target to generate assembly for a file
+interface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/interface.cpp.s
+.PHONY : interface.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico_POO.dir\build.make CMakeFiles/Trabalho_Pratico_POO.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -141,7 +261,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico_POO.dir\build.make CMakeFiles/Trabalho_Pratico_POO.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -149,8 +269,104 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Trabalho_Pratico_POO.dir\build.make CMakeFiles/Trabalho_Pratico_POO.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+menu.obj: menu.cpp.obj
+.PHONY : menu.obj
+
+# target to build an object file
+menu.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/menu.cpp.obj
+.PHONY : menu.cpp.obj
+
+menu.i: menu.cpp.i
+.PHONY : menu.i
+
+# target to preprocess a source file
+menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/menu.cpp.i
+.PHONY : menu.cpp.i
+
+menu.s: menu.cpp.s
+.PHONY : menu.s
+
+# target to generate assembly for a file
+menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/menu.cpp.s
+.PHONY : menu.cpp.s
+
+tempo.obj: tempo.cpp.obj
+.PHONY : tempo.obj
+
+# target to build an object file
+tempo.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/tempo.cpp.obj
+.PHONY : tempo.cpp.obj
+
+tempo.i: tempo.cpp.i
+.PHONY : tempo.i
+
+# target to preprocess a source file
+tempo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/tempo.cpp.i
+.PHONY : tempo.cpp.i
+
+tempo.s: tempo.cpp.s
+.PHONY : tempo.s
+
+# target to generate assembly for a file
+tempo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/tempo.cpp.s
+.PHONY : tempo.cpp.s
+
+trabalhador.obj: trabalhador.cpp.obj
+.PHONY : trabalhador.obj
+
+# target to build an object file
+trabalhador.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/trabalhador.cpp.obj
+.PHONY : trabalhador.cpp.obj
+
+trabalhador.i: trabalhador.cpp.i
+.PHONY : trabalhador.i
+
+# target to preprocess a source file
+trabalhador.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/trabalhador.cpp.i
+.PHONY : trabalhador.cpp.i
+
+trabalhador.s: trabalhador.cpp.s
+.PHONY : trabalhador.s
+
+# target to generate assembly for a file
+trabalhador.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/trabalhador.cpp.s
+.PHONY : trabalhador.cpp.s
+
+zona.obj: zona.cpp.obj
+.PHONY : zona.obj
+
+# target to build an object file
+zona.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/zona.cpp.obj
+.PHONY : zona.cpp.obj
+
+zona.i: zona.cpp.i
+.PHONY : zona.i
+
+# target to preprocess a source file
+zona.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/zona.cpp.i
+.PHONY : zona.cpp.i
+
+zona.s: zona.cpp.s
+.PHONY : zona.s
+
+# target to generate assembly for a file
+zona.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SIMULADORpoo.dir\build.make CMakeFiles/SIMULADORpoo.dir/zona.cpp.s
+.PHONY : zona.cpp.s
 
 # Help Target
 help:
@@ -160,10 +376,37 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Trabalho_Pratico_POO
+	@echo ... SIMULADORpoo
+	@echo ... comando.obj
+	@echo ... comando.i
+	@echo ... comando.s
+	@echo ... edificio.obj
+	@echo ... edificio.i
+	@echo ... edificio.s
+	@echo ... file.obj
+	@echo ... file.i
+	@echo ... file.s
+	@echo ... ilha.obj
+	@echo ... ilha.i
+	@echo ... ilha.s
+	@echo ... interface.obj
+	@echo ... interface.i
+	@echo ... interface.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... menu.obj
+	@echo ... menu.i
+	@echo ... menu.s
+	@echo ... tempo.obj
+	@echo ... tempo.i
+	@echo ... tempo.s
+	@echo ... trabalhador.obj
+	@echo ... trabalhador.i
+	@echo ... trabalhador.s
+	@echo ... zona.obj
+	@echo ... zona.i
+	@echo ... zona.s
 .PHONY : help
 
 

@@ -13,7 +13,7 @@ class Trabalhador {
     int valor_contratacao;
 public:
     Trabalhador(string type);
-		string	getType(void) const;
+    string	getType(void) const;
     void setValorContratacao(int valor_contratacao);
     int getValorContratacao(void) const;
 

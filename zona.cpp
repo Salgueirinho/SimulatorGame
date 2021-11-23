@@ -37,3 +37,8 @@ string	Zona::getTrabalhadores(void) const
 	}
 	return ss.str();
 }
+
+void Zona::setTrabalhador(Trabalhador worker)
+{
+    this->trabalhadores.push_back(worker);
+}

@@ -1,9 +1,11 @@
 #include <iostream>
 #include <sstream>
+#include <ctime>
 #include "interface.h"
 #include "comando.h"
 #include "ilha.h"
 #include "file.h"
+#include "tempo.h"
 
 using namespace std;
 
@@ -87,27 +89,32 @@ bool	Interface::executeCommand(string command, vector<string> args, Ilha& ilha)
 		}
 		ilha.zonas[int_args[0] - 1][int_args[1] - 1].setEdificio("mnF");
 	}
+    // contratar mineiros
+    if (command.compare("cont") == 0)
+    {
+        if (args[0].compare("miner"))
+        {
+            cout << "First argument (type of worker) provided in the wrong format." << endl;
+            return false;
+        }
+
+        Trabalhador worker(args[0]);
+        ilha.zonas[0][0].setTrabalhador(worker);
+    }
   //exec command
   if (command.compare("exec") == 0)
 	{
-		if (args.empty())
-		{
-			cout << "Missing Config file name" << endl;
-			return false;
-		}
+
     vector<string> instructions;
     File instructions_file;
     //returns line by line of a file
     instructions = instructions_file.readFile(args[0]);
+
 	} 
   
   if (command.compare("config") == 0)
 	{
-		if (args.empty())
-		{
-			cout << "Missing Config file name" << endl;
-			return false;
-		}
+
     vector<string> confs;
     File config_file;
     //returns line by line of a file

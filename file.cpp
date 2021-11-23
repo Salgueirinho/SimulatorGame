@@ -34,7 +34,7 @@ vector<string> File::readFile(string filepath){
   vector<string>string_vector;
   fs.open(filepath);
   if(!fs){
-    cout << "Ficheiro de configuração não existe" << endl;
+    cout << "Ficheiro não existe / Erro a abrir ficheiro" << endl;
     return {};
   }
   while (getline(fs,line)){

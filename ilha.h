@@ -21,6 +21,7 @@ class Ilha {
 		Ilha(int linhas, int colunas);
 		void setZoneTypes(void);
 		void display(void);
+
 };
 
 #endif // ILHA_H
