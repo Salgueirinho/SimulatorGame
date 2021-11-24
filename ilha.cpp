@@ -8,12 +8,18 @@ using namespace std;
 
 void Ilha::setZoneTypes(void)
 {
-	string arr[] = {"dsr", "pas", "flr", "mnt", "pnt", "znZ"};
+	vector<string> zoneTypes = {"dsr", "pas", "flr", "mnt", "pnt", "znZ"};
+	int	buf;
+
 	for (int i = 0; i < 8; i++)
 	{
 		for (int j = 0; j < 16; j++)
 		{
-			this->zonas[i][j].setZone(arr[rand() % 6]);
+			if (zoneTypes.empty())
+				zoneTypes = {"dsr", "pas", "flr", "mnt", "pnt", "znZ"};
+			buf = rand() % zoneTypes.size();
+			this->zonas[i][j].setZone(zoneTypes[buf]);
+			zoneTypes.erase(zoneTypes.begin() + buf);
 		}
 	}
 }
