@@ -31,6 +31,7 @@ class	Interface
 		void	startSimulation(void);
 		int		getNumber(void);
 		void	tryExecuteCommand(Ilha& ilha);
+        bool	executeList(Ilha& ilha);
 		bool	executeCommand(string command, vector<string> args, Ilha& ilha);
 		bool	validateArguments(Command &c, vector<string> arguments);
 		bool	validateCommand(Ilha& ilha, string command_args);

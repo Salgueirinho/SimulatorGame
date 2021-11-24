@@ -20,7 +20,8 @@ class Ilha {
 		Zona zonas[8][16];
 		void setZoneTypes(void);
 		void display(void) const;
-		void showInfo(void) const;
+        string getInfoAsString(int x, int y) const;
+        string getAllInfoAsString(void) const;
 };
 
 #endif // ILHA_H

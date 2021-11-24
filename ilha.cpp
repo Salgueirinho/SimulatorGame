@@ -2,6 +2,7 @@
 #include "zona.h"
 #include <ctime>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -71,7 +72,30 @@ void Ilha::display(void) const
 	}
 }
 
-void Ilha::showInfo(void) const
+string Ilha::getInfoAsString(int x, int y) const
 {
-	cout << "TEST" << endl; 
+    ostringstream oss;
+    oss << "Tipo de Zona: " << this->zonas[x][y].getZone() << endl;
+    oss << "Edificio: " << this->zonas[x][y].getEdificio() << endl;
+    oss << "Quantidade de trabalhadores: " << this->zonas[x][y].getNumberTrabalhadores() << endl;
+
+    return oss.str();
 }
+string Ilha::getAllInfoAsString(void) const
+{
+    ostringstream oss;
+    int quantidade_trabalhadores = 0;
+
+    for (int i = 0; i < 8; i++)
+    {
+        for (int j = 0; j < 16; j++)
+        {
+            quantidade_trabalhadores += this->zonas[i][j].getNumberTrabalhadores();
+        }
+    }
+    oss << "Numero de trabalhadores em toda a ilha: " << quantidade_trabalhadores << endl;
+
+    return oss.str();
+}
+
+

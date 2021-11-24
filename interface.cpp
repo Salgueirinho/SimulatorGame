@@ -106,7 +106,7 @@ bool	Interface::executeCommand(string command, vector<string> args, Ilha& ilha)
 
 		Trabalhador worker(args[0]);
 		vector<vector<int>> pastagens = getPasto(ilha);
-		int r = random() % pastagens.size();
+		int r = rand() % pastagens.size();
 		ilha.zonas[pastagens[r][0]][pastagens[r][1]].setTrabalhador(worker);
 	}
 	//exec command
@@ -130,8 +130,34 @@ bool	Interface::executeCommand(string command, vector<string> args, Ilha& ilha)
 		//returns line by line of a file
 		confs = config_file.readFile(args[0]);
 	}
+    if (command.compare("list") == 0)
+    {
+        if (!args.empty())
+        {
+            stringstream ss(args[0]);
+            ss >> buffer;
+            int_args.push_back(buffer);
+            if (ss.fail()) {
+                cout << "Second argument (X coordinate) provided in the wrong format." << endl;
+                return false;
+            }
+            stringstream ss2(args[1]);
+            ss2 >> buffer;
+            int_args.push_back(buffer);
+            if (ss.fail()) {
+                cout << "Third argument (Y coordinate) provided in the wrong format." << endl;
+                return false;
+            }
+            cout << ilha.getInfoAsString(int_args[0] - 1, int_args[1] - 1) << endl;
+        }
+    }
 
 	return true;
+}
+
+bool	Interface::executeList(Ilha& ilha)
+{
+    cout << ilha.getAllInfoAsString() << endl;
 }
 
 bool	Interface::validateCommand(Ilha& ilha, string command_args)
@@ -146,7 +172,12 @@ bool	Interface::validateCommand(Ilha& ilha, string command_args)
 		if (validateArguments(command, command_args_))
 		{
 			cout << "The number of arguments provided is correct. Congrats!" << endl;
-			if (executeCommand(command.getName(), command_args_, ilha))
+            if (!command_args.compare("list"))
+            {
+                executeList(ilha);
+                return (true);
+            }
+			else if (executeCommand(command.getName(), command_args_, ilha))
 			{
 				cout << "The command was succesfully executed." << endl;
 				return (true);
@@ -207,6 +238,10 @@ bool	Interface::validateArguments(Command &command, vector<string> arguments)
 {
 	if (command.getArgs().size() == arguments.size())
 		return (true);
-	else
-		return (false);
+    else if (!command.getName().compare("list") && arguments.size() == 0)
+        return (true);
+    else
+    {
+        return (false);
+    }
 }
