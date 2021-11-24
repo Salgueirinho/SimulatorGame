@@ -2,6 +2,7 @@
 #include <sstream>
 #include <ctime>
 #include "interface.h"
+#include "config.h"
 #include "comando.h"
 #include "ilha.h"
 #include "file.h"
@@ -70,6 +71,8 @@ bool	Interface::executeCommand(string command, vector<string> args, Ilha& ilha)
 {
 	vector<int>	int_args;
 	int			buffer;
+	if (command.compare("config") == 0)
+		config(args[0]);
 	if (command.compare("cons") == 0)
 	{
 		if (args[0].compare("minaferro"))

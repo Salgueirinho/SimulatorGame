@@ -103,5 +103,3 @@ string Ilha::getAllInfoAsString(void) const
 
     return oss.str();
 }
-
-
