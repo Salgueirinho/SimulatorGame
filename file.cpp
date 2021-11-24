@@ -29,33 +29,33 @@ int	File::display(string filepath)
 }
 
 vector<string> File::readFile(string filepath){
-  string line;
-  ifstream fs;
-  vector<string>string_vector;
-  fs.open(filepath);
-  if(!fs){
-    cout << "Ficheiro não existe / Erro a abrir ficheiro" << endl;
-    return {};
-  }
-  while (getline(fs,line)){
-    string_vector.push_back(line);
-  }
-  fs.close();
-  return string_vector; 
+	string line;
+	ifstream fs;
+	vector<string>string_vector;
+	fs.open(filepath);
+	if(!fs){
+		cout << "Ficheiro não existe / Erro a abrir ficheiro" << endl;
+		return {};
+	}
+	while (getline(fs,line)){
+		string_vector.push_back(line);
+	}
+	fs.close();
+	return string_vector; 
 }
 
 
 /*
-vector<string> File::splitStringInt(const string &s)
-{
-	stringstream ss (s);
-	string item;
-  vector<string> s_separada;
+	 vector<string> File::splitStringInt(const string &s)
+	 {
+	 stringstream ss (s);
+	 string item;
+	 vector<string> s_separada;
 
-	while (getline (ss, item, ' ')) {
-    s_separada.push_back(item);
-	}
+	 while (getline (ss, item, ' ')) {
+	 s_separada.push_back(item);
+	 }
 
-	return (0);
-}
-*/
+	 return (0);
+	 }
+ */

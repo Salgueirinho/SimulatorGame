@@ -5,51 +5,41 @@
 
 using namespace std;
 
-Ilha::Ilha(int linhas, int colunas)
-{
-	this->zonas.resize(colunas);
-
-	for (int i = 0; i < colunas; i++)
-	{
-		zonas[i].resize(linhas);
-	}
-}
-
 void Ilha::setZoneTypes(void)
 {
 	string arr[] = {"dsr", "pas", "flr", "mnt", "pnt", "znZ"};
-	for (int i = 0; i < this->zonas.size(); i++)
+	for (int i = 0; i < 8; i++)
 	{
-		for (int j = 0; j < this->zonas[i].size(); j++)
+		for (int j = 0; j < 16; j++)
 		{
 			this->zonas[i][j].setZone(arr[rand() % 6]);
 		}
 	}
 }
 
-void Ilha::display(void)
+void Ilha::display(void) const
 {
 	int	n = 0;
 	string buf;
 
-	for (int i = 0; i < this->zonas[0].size(); i++)
+	for (int i = 0; i < 16; i++)
 	{
 		cout << "_____";
 	}
 	cout << endl;
-	for (int i = 0; i < this->zonas.size(); i++)
+	for (int i = 0; i < 8; i++)
 	{
-		for (int j = 0; j < this->zonas[i].size(); j++)
+		for (int j = 0; j < 16; j++)
 		{
 			cout << "|" << zonas[i][j].getZone() << " ";
 		}
 		cout << "|" << endl;
-		for (int j = 0; j < this->zonas[i].size(); j++)
+		for (int j = 0; j < 16; j++)
 		{
 			cout << "|" << zonas[i][j].getEdificio() << " ";
 		}
 		cout << "|" << endl;
-		for (int j = 0; j < this->zonas[i].size(); j++)
+		for (int j = 0; j < 16; j++)
 		{
 			buf = zonas[i][j].getTrabalhadores();
 			if (buf.size() == 0)
@@ -64,7 +54,7 @@ void Ilha::display(void)
 				cout << "|" << buf;
 		}
 		cout << "|" << endl;	
-		for (int j = 0; j < this->zonas[i].size(); j++)
+		for (int j = 0; j < 16; j++)
 		{
 			n = zonas[i][j].getNumberTrabalhadores();
 			if (n < 10)
@@ -73,10 +63,15 @@ void Ilha::display(void)
 				cout << "|" << n << "  ";
 		}
 		cout << "|" << endl;
-	  for (int i = 0; i < this->zonas[0].size(); i++)
-    {
-      cout << "_____";
-    }
-    cout << "|" << endl;
-  }
+		for (int i = 0; i < 16; i++)
+		{
+			cout << "_____";
+		}
+		cout << "|" << endl;
+	}
+}
+
+void Ilha::showInfo(void) const
+{
+	cout << "TEST" << endl; 
 }

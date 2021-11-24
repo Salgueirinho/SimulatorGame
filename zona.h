@@ -12,7 +12,7 @@ class Zona {
 	private:
 		string zone_type;
 		Edificio edificio;
-    static	int eficiencia_mineracao;
+		static	int eficiencia_mineracao;
 		vector<Trabalhador> trabalhadores;
 	public:
 		void setZone(string zone_type);
@@ -21,7 +21,7 @@ class Zona {
 		string	getEdificio(void) const;
 		int	getNumberTrabalhadores(void) const;
 		string	getTrabalhadores(void) const;
-        void setTrabalhador(Trabalhador worker);
+		void setTrabalhador(Trabalhador worker);
 };
 
 class Pastagem : public Zona {

@@ -9,13 +9,13 @@
 
 using namespace std;
 class Trabalhador {
-    string type;
-    int valor_contratacao;
-public:
-    Trabalhador(string type);
-    string	getType(void) const;
-    void setValorContratacao(int valor_contratacao);
-    int getValorContratacao(void) const;
+	string type;
+	int valor_contratacao;
+	public:
+	Trabalhador(string type);
+	string	getType(void) const;
+	void setValorContratacao(int valor_contratacao);
+	int getValorContratacao(void) const;
 
 };
 

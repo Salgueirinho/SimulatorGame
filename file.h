@@ -7,11 +7,11 @@
 using namespace std;
 
 class File {
-    private:
-    public:
+	private:
+	public:
 		int	display(string filepath);
-        vector<string> readFile(string filepath); // lê para memoria linha a linha de um ficheiro
-    //vector<string> File::splitStringInt(const string &s);
+		vector<string> readFile(string filepath); // lê para memoria linha a linha de um ficheiro
+		//vector<string> File::splitStringInt(const string &s);
 };
 
 #endif // FILES_H

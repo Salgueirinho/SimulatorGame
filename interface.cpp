@@ -9,6 +9,26 @@
 
 using namespace std;
 
+vector<vector<int>>	getPasto(Ilha ilha)
+{
+	vector<vector<int>> pastagens;
+	vector<int> coords;
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 16; j++)
+		{
+			if (ilha.zonas[i][j].getZone() == "pas")
+			{
+				coords.push_back(i);
+				coords.push_back(j);
+				pastagens.push_back(coords);
+				coords.clear();
+			}
+		}
+	}
+	return (pastagens);
+}
+
 void	Interface::startSimulation(void)
 {
 	Interface interface;
@@ -17,21 +37,7 @@ void	Interface::startSimulation(void)
 
 	srand((unsigned) time(0));
 
-	while (lines < 3 || 8 < lines)
-	{
-		cout << "Please insert the number of lines for the island grid: ";	
-		lines = interface.getNumber();
-		if (lines < 3 || 8 < lines)
-			cout << "Please insert a value between 3 and 8." << endl;
-	}
-	while (columns < 3 || 16 < columns)
-	{
-		cout << "Please insert the number of columns for the island grid: ";	
-		columns = interface.getNumber();
-		if (columns < 3 || 16 < columns)
-			cout << "Please insert a value between 3 and 16." << endl;
-	}
-	Ilha ilha(lines, columns);
+	Ilha ilha;
 	ilha.setZoneTypes();
 	while (1)
 	{
@@ -89,93 +95,103 @@ bool	Interface::executeCommand(string command, vector<string> args, Ilha& ilha)
 		}
 		ilha.zonas[int_args[0] - 1][int_args[1] - 1].setEdificio("mnF");
 	}
-    // contratar mineiros
-    if (command.compare("cont") == 0)
-    {
-        if (args[0].compare("miner"))
-        {
-            cout << "First argument (type of worker) provided in the wrong format." << endl;
-            return false;
-        }
-
-        Trabalhador worker(args[0]);
-        ilha.zonas[0][0].setTrabalhador(worker);
-    }
-  //exec command
-  if (command.compare("exec") == 0)
+	// contratar mineiros
+	if (command.compare("cont") == 0)
 	{
+		if (args[0].compare("miner"))
+		{
+			cout << "First argument (type of worker) provided in the wrong format." << endl;
+			return false;
+		}
 
-    vector<string> instructions;
-    File instructions_file;
-    //returns line by line of a file
-    instructions = instructions_file.readFile(args[0]);
+		Trabalhador worker(args[0]);
+		vector<vector<int>> pastagens = getPasto(ilha);
+		int r = random() % pastagens.size();
+		ilha.zonas[pastagens[r][0]][pastagens[r][1]].setTrabalhador(worker);
+	}
+	//exec command
+	if (command.compare("exec") == 0)
+	{
+		File instructions_file;
+		vector<string> instructions = instructions_file.readFile(args[0]);
+		cout << args[0] << endl;
+		for (int i = 0; i < instructions.size(); i++)
+		{
+			validateCommand(ilha, instructions[i]);
+		}
 
 	} 
-  
-  if (command.compare("config") == 0)
+
+	if (command.compare("config") == 0)
 	{
 
-    vector<string> confs;
-    File config_file;
-    //returns line by line of a file
-    confs = config_file.readFile(args[0]);
+		vector<string> confs;
+		File config_file;
+		//returns line by line of a file
+		confs = config_file.readFile(args[0]);
 	}
 
 	return true;
 }
 
-void	Interface::tryExecuteCommand(Ilha& ilha)
+bool	Interface::validateCommand(Ilha& ilha, string command_args)
 {
-	string					command_args;
-	int							index = -1;
-
-	while (1)
+	vector<string> command_args_ = split(command_args);
+	int index = getCommandIndex(command_args_[0]);
+	if (index >= 0)
 	{
-		cout << "Command: ";
-		
-		getline(cin >> ws, command_args);
-		vector<string> command_args_ = split(command_args);
-		index = getCommandIndex(command_args_[0]);
-		if (index >= 0)
+		cout << "This command is valid. Congrats!" << endl;
+		Command &command = commands[index];
+		command_args_.erase(command_args_.begin());
+		if (validateArguments(command, command_args_))
 		{
-			cout << "This command is valid. Congrats!" << endl;
-			Command &command = commands[index];
-			command_args_.erase(command_args_.begin());
-			if (validateArguments(command, command_args_))
+			cout << "The number of arguments provided is correct. Congrats!" << endl;
+			if (executeCommand(command.getName(), command_args_, ilha))
 			{
-				cout << "The number of arguments provided is correct. Congrats!" << endl;
-				if (executeCommand(command.getName(), command_args_, ilha))
-				{
-					cout << "The command was succesfully executed." << endl;
-					break;
-				}
-				else
-				{
-					cout << "The command couldn't be executed." << endl;
-				}
+				cout << "The command was succesfully executed." << endl;
+				return (true);
 			}
 			else
 			{
-				cout << "The number of arguments provided is incorrect. Try again!" << endl;
+				cout << "The command couldn't be executed." << endl;
 			}
 		}
 		else
 		{
-			cout << "This command is invalid. Try again!" << endl;
+			cout << "The number of arguments provided is incorrect. Try again!" << endl;
 		}
+	}
+	else
+	{
+		cout << "This command is invalid. Try again!" << endl;
+	}
+	return (false);
+}
+
+void	Interface::tryExecuteCommand(Ilha& ilha)
+{
+	string					command_args;
+	bool						validity = false;
+	int							index = -1;
+
+	while (validity == false)
+	{
+		cout << "Command: ";
+		getline(cin >> ws, command_args);
+		validity = validateCommand(ilha, command_args);
 	}
 }
 
 vector<string> Interface::split(const string &s)
 {
-		vector<string> result;
-		stringstream ss (s);
-		string item;
+	vector<string> result;
+	stringstream ss (s);
+	string item;
 
-		while (getline (ss, item, ' ')) {
-			result.push_back (item);
-		}
-		return (result);
+	while (getline (ss, item, ' ')) {
+		result.push_back (item);
+	}
+	return (result);
 }
 
 int		Interface::getCommandIndex(string command)

@@ -40,5 +40,5 @@ string	Zona::getTrabalhadores(void) const
 
 void Zona::setTrabalhador(Trabalhador worker)
 {
-    this->trabalhadores.push_back(worker);
+	this->trabalhadores.push_back(worker);
 }
