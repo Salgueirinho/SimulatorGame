@@ -158,6 +158,7 @@ bool	Interface::executeCommand(string command, vector<string> args, Ilha& ilha)
 bool	Interface::executeList(Ilha& ilha)
 {
     cout << ilha.getAllInfoAsString() << endl;
+		return (true);
 }
 
 bool	Interface::validateCommand(Ilha& ilha, string command_args)
