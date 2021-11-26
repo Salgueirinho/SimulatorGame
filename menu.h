@@ -1,16 +1,6 @@
 #ifndef MENU_H
 #define MENU_H
 
-class Menu
-{
-	private:
-		// here go private methods and attributes
-	public:
-		// here go public methods and attributes
-		void	show(void);
-		void	showInstructions(void);
-		int		askOption(void);
-		bool	validateOption(int option);
-};
+void	showMenu(void);
 
-#endif // INTERFACE_H
+#endif

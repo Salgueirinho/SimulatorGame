@@ -1,3 +1,0 @@
-D:/Windows/POO/Trabalho-Pratico-POO/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-D:/Windows/POO/Trabalho-Pratico-POO/cmake-build-debug/CMakeFiles/SIMULADORpoo.dir
-D:/Windows/POO/Trabalho-Pratico-POO/cmake-build-debug/CMakeFiles/edit_cache.dir

@@ -1,2 +1,0 @@
-cons minaferro 3 3
-cont mineiro

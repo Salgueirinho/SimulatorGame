@@ -1,31 +1,82 @@
-Objetivo:
-Evoluir a ilha;
-Construir edificios;
-Contratar mais trabalhadores;
-Ganhar dinheiro;
-A Pontuação é a sua riqueza no final do jogo.
+-------------
+Game Commands
+-------------
 
-Regras:
-Pode fazer x ações por dia.
-O jogo termina quando quiser ou
-quando ficar sem recursos para poder continuar.
+exec <filename>
 
-Instruções/Comandos:
- - exec <nomeFicheiro> 		 : Executa ações indicadas num ficheiro txt.
- - cons <tipo> <linha> <coluna>  : Constroi um edificio de um determinado tipo na zona da ilha indicada.
- - liga <linha> <coluna> 	 : Liga o edifício (caso exista) que está construído na zona indicada.
- - des <linha> <coluna> 	 : Desliga o edifício (caso exista) que está construído na zona indicada.
- - move <id> <linha> <coluna> 	 : Move trabalhador para a zona indicada.
- - vende <tipo> <quanto> 	 : Vende certa quantidade de recursos de um determinado tipo.
- - cont <tipo> 			 : Contrata um trabalhador de determinado tipo que vai para a zona de pasto.
- - list <linha> <coluna>	 : Obtém informação do jogo em determinada zona, ou global caso não seja indicada a zona.
- - vende <linha> <coluna> 	 : Vende edificio em determinada zona pelo mesmo valor de construção, assim como os seus recursos.
- - next 			 : Termina a fase de recolha de comandos e passa ao próximo dia.
- - save <nome>			 : Grava o jogo, possibilitando assim a sua continuação num momento mais tarde.
- - load <nome>			 : Recupera um jogo antes guardado.
- - apaga <nome>			 : Apaga determinado jogo guardado.
- - config <ficheiro>		 : Lê ficheiro de configuração de jogo.
- - debcash <valor> 		 : Adiciona certa quantidade de dinheiro (para testes).
- - debed <tipo> <linha> <coluna> : Adiciona um edificio em certa zona a custo zero (para testes).
- - debkill <id>			 : Remove trabalhador (para testes).
+- Executes commands in a text file
 
+cons <type> <X> <Y>
+
+- Places down a building at coordinates (x, y)
+
+liga <X> <Y>
+
+- Turns on building (if it exists) at coordinates (x, y)
+
+des <X> <Y>
+
+- Turns off building (if it exists) at coordinates (x, y)
+
+move <worker_id> <X> <Y>
+
+- Moves worker to coordinates (x, y)
+
+vende <type> <quantity>
+
+- Sells certain quantity of resource of a certain type
+
+cont <type>
+
+- Hires a worker (automatically spawns at Pasto)
+
+list
+
+- Displays global information
+
+list <X> <Y>
+
+- Displays information about specific patch at coordinates (x, y) 
+
+vende <X> <Y>
+
+- Sells building for it's original price, together with the resources it holds
+
+next
+
+- Ends command fase and starts next fase of the day
+
+save <name>
+
+- Saves gamestate, so that it's possible to resume later
+
+load <name>
+
+- Loads gamestate
+
+apaga <name>
+
+- Deletes gamestate
+
+config <filename>
+
+- Reads game configuration file
+
+----------------------
+For debugging purposes
+----------------------
+
+debcash <value>
+
+- Adds certain quantity of cash to balance
+
+debed <type> <X> <Y>
+
+- Adds building in certain zone at zero cost
+
+debkill <worker_id>
+
+- Removes worker
+
+ > Back           -- digit "back"
+ > Exit           -- digit "exit"
