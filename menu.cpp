@@ -9,7 +9,9 @@ void	showMenu(void)
 	while (option.compare("exit"))
 	{
 		displayFile("mainmenu");
+		cout << "Your option: ";
 		option = getOption({"play", "info", "exit"});
+		option = option.substr(0, option.find(" "));
 		if (!option.compare("play"))
 			startGame();
 		else if (!option.compare("info"))
