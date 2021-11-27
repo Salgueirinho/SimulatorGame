@@ -1,6 +1,12 @@
 #ifndef ZONE_H
 #define ZONE_H
 
+#include <vector>
+#include "Building.h"
+#include "Worker.h"
+
+using namespace	std;
+
 class Zone {
 	public:
 	private:
