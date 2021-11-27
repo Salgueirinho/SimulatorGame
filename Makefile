@@ -1,8 +1,10 @@
+NAME = game
+
 all:
-	@g++ *.cpp -Wall -Wextra -Werror -o sim
+	@g++ *.cpp -Wall -Wextra -Werror -o $(NAME)
 
 run: all
-	./sim
+	./$(NAME)
 
 clean:
-	@rm sim
+	@rm $(NAME)
