@@ -1,4 +1,5 @@
 #include <iostream>
+#include "game.h"
 #include "utils.h"
 
 void	showMenu(void)
@@ -10,7 +11,7 @@ void	showMenu(void)
 		displayFile("mainmenu");
 		option = getOption({"play", "info", "exit"});
 		if (!option.compare("play"))
-			cout << "This option is to play." << endl;
+			startGame();
 		else if (!option.compare("info"))
 		{
 			displayFile("instructions");
