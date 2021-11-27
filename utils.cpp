@@ -29,12 +29,11 @@ string	getOption(vector<string> options)
 
 	while (1)
 	{
-		cout << "Your option: ";
-		cin >> option;
-		if (find(options.begin(), options.end(),  option) != options.end())
+		getline(cin, option);
+		if (find(options.begin(), options.end(),  option.substr(0, option.find(" "))) != options.end())
 			return (option);
 		else
-			cout << "Please insert a valid option!" << endl;
+			cout << "Please insert a valid option/command: ";
 	}
 }
 
@@ -45,13 +44,12 @@ int		getNumberBetween(int a, int b)
 
 	while (1)
 	{
-		cout << "Your number: ";
 		cin >> number_string;
 		stringstream ss(number_string);
 		ss >> number;
 		if (!ss.fail() && (a <= number && number <= b))
 			return (number);
 		else
-			cout << "Please insert a number between " << a << " and " << b << endl;
+			cout << "Please insert a number between " << a << " and " << b << ": ";
 	}
 }
