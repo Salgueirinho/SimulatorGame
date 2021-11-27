@@ -11,7 +11,7 @@ void	displayFile(string filepath)
 	fs.open(filepath);
 	if (!fs)
 	{
-		cout << "Unable to open file " << filepath << endl;
+		cout << "Unable to open file \"" << filepath << "\"." << endl;
 		return ;
 	}
 	while (!fs.eof())
@@ -28,6 +28,7 @@ string	getOption(vector<string> options)
 
 	while (1)
 	{
+		cout << "Your option: ";
 		cin >> option;
 		if (find(options.begin(), options.end(),  option) != options.end())
 			return (option);

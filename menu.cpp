@@ -10,7 +10,7 @@ void	showMenu(void)
 		displayFile("mainmenu");
 		option = getOption({"play", "info", "exit"});
 		if (!option.compare("play"))
-			option = "exit";
+			cout << "This option is to play." << endl;
 		else if (!option.compare("info"))
 		{
 			displayFile("instructions");
