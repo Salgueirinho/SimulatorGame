@@ -8,5 +8,6 @@ using namespace	std;
 
 void	displayFile(string filename);
 string	getOption(vector<string> options);
+int		getNumberBetween(int a, int b);
 
 #endif
