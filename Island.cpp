@@ -2,30 +2,36 @@
 #include <typeinfo>
 #include <iostream>
 
-Island::Island(int lines, int columns)
+Island::Island(int rows, int columns)
 {
-	this->lines = lines;
+	this->rows = rows;
 	this->columns = columns;
-	this->zones = new Zone**[lines];
-	for (int i = 0; i < lines; i++)
+	this->zones = new Zone**[rows];
+	for (int i = 0; i < rows; i++)
+	{
 		zones[i] = new Zone*[columns];
+		for (int j = 0; j < columns; j++)
+			zones[i][j] = new Forest[1];
+	}
 }
 
 Island::~Island()
 {
-	for (int i = 0; i < lines; i++)
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < columns; j++)
+			delete [] zones[i][j];
 		delete [] zones[i];
+	}
 	delete [] zones;
 }
 
 void Island::display()
 {
-	for (int i = 0; i < lines; i++)
+	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < columns; j++)
-		{
-			cout << typeid(zones[i][j]).name() << " ";
-		}
-		cout << endl;
+			std::cout << zones[i][j]->getType() << " ";
+		std::cout << std::endl;
 	}
 }

@@ -9,7 +9,7 @@ class Island {
 		~Island();
 		void display();
 	private:
-		int	lines;
+		int	rows;
 		int	columns;
 		Zone ***zones;
 };

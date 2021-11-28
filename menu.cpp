@@ -4,12 +4,12 @@
 
 void	showMenu(void)
 {
-	string option; 
+	std::string option; 
 
 	while (option.compare("exit"))
 	{
 		displayFile("mainmenu");
-		cout << "Your option: ";
+		std::cout << "Your option: ";
 		option = getOption({"play", "info", "exit"});
 		option = option.substr(0, option.find(" "));
 		if (!option.compare("play"))
@@ -20,5 +20,5 @@ void	showMenu(void)
 			option = getOption({"back", "exit"});
 		}
 	}
-	cout << "See you next time!" << endl;
+	std::cout << "See you next time!" << std::endl;
 }

@@ -6,17 +6,17 @@ void	startGame(void)
 {
 	int	lines;
 	int	columns;
-	string	command;
+	std::string	command;
 
-	cout << "Number of lines for the island, please: ";
+	std::cout << "Number of lines for the island, please: ";
 	lines = getNumberBetween(3, 8);
-	cout << "Number of columns for the island, please: ";
+	std::cout << "Number of columns for the island, please: ";
 	columns = getNumberBetween(3, 16);
 	Island	island(lines, columns);
 	while (command.compare(0, command.find(" "), "exit"))
 	{
 		island.display();
-		cout << "Your command: ";
+		std::cout << "Your command: ";
 		command = getOption({"exit"});
 	}
 }
