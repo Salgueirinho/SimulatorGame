@@ -4,52 +4,46 @@
 #include <sstream>
 #include "utils.h"
 
-void	displayFile(string filepath)
+void	displayFile(std::string filepath)
 {
-	fstream	fs;
-	char		c;
-
+	std::fstream	fs;
 	fs.open(filepath);
 	if (!fs)
 	{
-		cout << "Unable to open file \"" << filepath << "\"." << endl;
+		std::cout << "Unable to open file \"" << filepath << "\"." << std::endl;
 		return ;
 	}
-	while (!fs.eof())
-	{
-		cout << c;
-		fs.get(c);
-	}
+	std::cout << fs.rdbuf();
 	fs.close();
 }
 
-string	getOption(vector<string> options)
+std::string	getOption(std::vector<std::string> options)
 {
-	string option;
+	std::string option;
 
 	while (1)
 	{
-		getline(cin, option);
-		if (find(options.begin(), options.end(),  option.substr(0, option.find(" "))) != options.end())
+		std::getline(std::cin, option);
+		if (std::find(options.begin(), options.end(),  option.substr(0, option.find(" "))) != options.end())
 			return (option);
 		else
-			cout << "Please insert a valid option/command: ";
+			std::cout << "Please insert a valid option/command: ";
 	}
 }
 
 int		getNumberBetween(int a, int b)
 {
-	string	number_string;
+	std::string	number_string;
 	int	number;
 
 	while (1)
 	{
-		cin >> number_string;
-		stringstream ss(number_string);
+		std::cin >> number_string;
+		std::stringstream ss(number_string);
 		ss >> number;
 		if (!ss.fail() && (a <= number && number <= b))
 			return (number);
 		else
-			cout << "Please insert a number between " << a << " and " << b << ": ";
+			std::cout << "Please insert a number between " << a << " and " << b << ": ";
 	}
 }

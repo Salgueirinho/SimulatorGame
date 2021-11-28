@@ -4,10 +4,8 @@
 #include <string>
 #include <vector>
 
-using namespace	std;
-
-void	displayFile(string filename);
-string	getOption(vector<string> options);
+void	displayFile(std::string filename);
+std::string	getOption(std::vector<std::string> options);
 int		getNumberBetween(int a, int b);
 
 #endif
