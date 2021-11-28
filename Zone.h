@@ -10,7 +10,7 @@ class Zone {
 	public:
 		virtual std::string getType() const = 0;
 	private:
-		std::vector<Worker>	workers;
+		std::vector<Worker*>	workers;
 		Building	*building;
 };
 
@@ -50,6 +50,6 @@ class ZoneX : public Zone{
 	private:
 };
 
-#endif
-
 Zone	*createNewZone(std::string zoneType);
+
+#endif
