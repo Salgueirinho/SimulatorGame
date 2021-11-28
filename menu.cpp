@@ -2,7 +2,7 @@
 #include "game.h"
 #include "utils.h"
 
-void	showMenu(void)
+void	showMenu()
 {
 	std::string option; 
 

@@ -2,7 +2,7 @@
 #include "Island.h"
 #include "utils.h"
 
-void	startGame(void)
+void	startGame()
 {
 	int	lines;
 	int	columns;
