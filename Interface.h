@@ -3,7 +3,8 @@
 
 class	Interface {
 	public:
-		void showMenu() const;
+		void	showMenu() const;
+		void	startGame() const;
 	private:
 };
 

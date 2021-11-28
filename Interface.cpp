@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Interface.h"
-#include "game.h"
+#include "Island.h"
 #include "utils.h"
 
 void	Interface::showMenu() const
@@ -21,4 +21,21 @@ void	Interface::showMenu() const
 		}
 	}
 	std::cout << "See you next time!" << std::endl;
+}
+
+void	Interface::startGame() const
+{
+	int	lines;
+	int	columns;
+	std::string	command;
+
+	std::cout << "";
+	lines = getNumberBetween(3, 8, "Number of rows for the island, please: ");
+	columns = getNumberBetween(3, 16, "Number of columns for the island, please: ");
+	Island	island(lines, columns);
+	while (command.compare(0, command.find(" "), "exit"))
+	{
+		island.display();
+		command = getOption({"exit"}, "Command: ");
+	}
 }
