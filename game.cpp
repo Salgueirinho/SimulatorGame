@@ -8,15 +8,13 @@ void	startGame()
 	int	columns;
 	std::string	command;
 
-	std::cout << "Number of lines for the island, please: ";
-	lines = getNumberBetween(3, 8);
-	std::cout << "Number of columns for the island, please: ";
-	columns = getNumberBetween(3, 16);
+	std::cout << "";
+	lines = getNumberBetween(3, 8, "Number of rows for the island, please: ");
+	columns = getNumberBetween(3, 16, "Number of columns for the island, please: ");
 	Island	island(lines, columns);
 	while (command.compare(0, command.find(" "), "exit"))
 	{
 		island.display();
-		std::cout << "Your command: ";
-		command = getOption({"exit"});
+		command = getOption({"exit"}, "Command: ");
 	}
 }

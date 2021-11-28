@@ -17,33 +17,35 @@ void	displayFile(std::string filepath)
 	fs.close();
 }
 
-std::string	getOption(std::vector<std::string> options)
+std::string	getOption(std::vector<std::string> options, std::string question)
 {
 	std::string option;
 
 	while (1)
 	{
+		std::cout << question;
 		std::getline(std::cin, option);
 		if (std::find(options.begin(), options.end(),  option.substr(0, option.find(" "))) != options.end())
 			return (option);
 		else
-			std::cout << "Please insert a valid option/command: ";
+			std::cout << "Please insert a valid option/command!" << std::endl;
 	}
 }
 
-int		getNumberBetween(int a, int b)
+int		getNumberBetween(int a, int b, std::string question)
 {
 	std::string	number_string;
 	int	number;
 
 	while (1)
 	{
-		std::cin >> number_string;
+		std::cout << question;
+		std::getline(std::cin, number_string);
 		std::stringstream ss(number_string);
 		ss >> number;
 		if (!ss.fail() && (a <= number && number <= b))
 			return (number);
 		else
-			std::cout << "Please insert a number between " << a << " and " << b << ": ";
+			std::cout << "Please insert a number between " << a << " and " << b << "!" << std::endl;
 	}
 }
