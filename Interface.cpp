@@ -1,8 +1,9 @@
 #include <iostream>
+#include "Interface.h"
 #include "game.h"
 #include "utils.h"
 
-void	showMenu()
+void	Interface::showMenu() const
 {
 	std::string option; 
 
