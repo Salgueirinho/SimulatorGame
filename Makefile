@@ -1,7 +1,7 @@
 NAME = game
 
 all:
-	@g++ *.cpp -Wall -Wextra -Werror -o $(NAME)
+	@g++ *.cpp -Wall -Wextra -Werror -pedantic -o $(NAME)
 
 run: all
 	./$(NAME)
