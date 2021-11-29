@@ -37,7 +37,7 @@ Island::~Island()
 	delete [] zones;
 }
 
-void	Island::display()
+void	Island::displayZones()
 {
 	for (int i = 0; i < rows; i++)
 	{

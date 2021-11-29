@@ -8,7 +8,7 @@ class Island {
 		Island(int lines, int columns);
 		~Island();
 		void randomizeZones();
-		void display();
+		void displayZones();
 	private:
 		int	rows;
 		int	columns;

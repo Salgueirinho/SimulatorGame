@@ -35,7 +35,7 @@ void	Interface::startGame() const
 	Island	island(lines, columns);
 	while (command.compare(0, command.find(" "), "exit"))
 	{
-		island.display();
+		island.displayZones();
 		command = getOption({"exit"}, "Command: ");
 	}
 }
