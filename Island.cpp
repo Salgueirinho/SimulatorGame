@@ -17,13 +17,10 @@ Island::Island(int rows, int columns)
 void	Island::randomizeZones()
 {
 	std::vector<Zone*> temp;
-	std::random_device rd;
-	std::mt19937 g(rd());
 	std::string zoneTypes[] = {"Desert", "Pasture", "Forest", "Mountain", "Swamp", "ZoneX"};
-
 	while ((int) temp.size() < rows * columns)
 		temp.push_back(createNewZone(zoneTypes[temp.size() % 6]));
-	std::shuffle(temp.begin(), temp.end(), g);
+	std::random_shuffle(temp.begin(), temp.end());
 	for (int i = 0; i < rows; i++)
 		for (int j = 0; j < columns; j++)
 			zones[i][j] = temp[i * columns + j];
