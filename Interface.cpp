@@ -10,13 +10,13 @@ void	Interface::start() const
 	while (option.compare("exit"))
 	{
 		displayFile("mainmenu");
-		option = getOption({"play", "info", "exit"}, "Option: ").substr(0, option.find(" "));
+		option = getCommand({"play", "info", "exit"}, "Option: ").substr(0, option.find(" "));
 		if (option == "play")
 			game();
 		else if (option == "info")
 		{
 			displayFile("instructions");
-			option = getOption({"back", "exit"}, "Option: ").substr(0, option.find(" "));
+			option = getCommand({"back", "exit"}, "Option: ").substr(0, option.find(" "));
 		}
 	}
 	std::cout << "See you next time!" << std::endl;
@@ -30,6 +30,6 @@ void	Interface::game() const
 	while (command.compare(0, command.find(" "), "exit"))
 	{
 		island.displayZones();
-		command = getOption({"exit"}, "Command: ");
+		command = getCommand({"exit"}, "Command: ");
 	}
 }

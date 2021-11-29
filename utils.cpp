@@ -17,16 +17,16 @@ void displayFile(std::string filepath)
 	fs.close();
 }
 
-std::string	getOption(std::vector<std::string> options, std::string question)
+std::string	getCommand(std::vector<std::string> options, std::string question)
 {
-	std::string option;
+	std::string command;
 
 	while (1)
 	{
 		std::cout << question;
-		std::getline(std::cin, option);
-		if (std::find(options.begin(), options.end(),  option.substr(0, option.find(" "))) != options.end())
-			return (option);
+		std::getline(std::cin, command);
+		if (std::find(options.begin(), options.end(),  command.substr(0, command.find(" "))) != options.end())
+			return (command);
 		else
 			std::cout << "Please insert a valid option/command!" << std::endl;
 	}
