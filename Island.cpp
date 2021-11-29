@@ -20,7 +20,7 @@ void	Island::randomizeZones()
 	std::string zoneTypes[] = {"Desert", "Pasture", "Forest", "Mountain", "Swamp", "ZoneX"};
 	while ((int) temp.size() < rows * columns)
 		temp.push_back(createNewZone(zoneTypes[temp.size() % 6]));
-	std::random_shuffle(temp.begin(), temp.end());
+	std::shuffle(temp.begin(), temp.end(), std::random_device());
 	for (int i = 0; i < rows; i++)
 		for (int j = 0; j < columns; j++)
 			zones[i][j] = temp[i * columns + j];
