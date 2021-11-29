@@ -1,6 +1,6 @@
 #include "Zone.h"
 
-Zone	*createNewZone(std::string zoneType)
+Zone	*createNewZone(const std::string &zoneType)
 {
 	if (zoneType == "Desert")
 		return (new Desert[1]);

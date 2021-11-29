@@ -4,7 +4,7 @@
 #include <sstream>
 #include "utils.h"
 
-void displayFile(std::string filepath)
+void displayFile(const std::string& filepath)
 {
 	std::fstream	fs;
 	fs.open(filepath);
@@ -17,27 +17,27 @@ void displayFile(std::string filepath)
 	fs.close();
 }
 
-std::string	getCommand(std::vector<std::string> options, std::string question)
+std::string	getCommand(std::vector<std::string> options, const std::string& question)
 {
 	std::string command;
 
-	while (1)
+	while (true)
 	{
 		std::cout << question;
 		std::getline(std::cin, command);
-		if (std::find(options.begin(), options.end(),  command.substr(0, command.find(" "))) != options.end())
+		if (std::find(options.begin(), options.end(),  command.substr(0, command.find(' '))) != options.end())
 			return (command);
 		else
 			std::cout << "Please insert a valid option/command!" << std::endl;
 	}
 }
 
-int		getNumberBetween(int a, int b, std::string question)
+int		getNumberBetween(int a, int b, const std::string& question)
 {
 	std::string	number_string;
 	int	number;
 
-	while (1)
+	while (true)
 	{
 		std::cout << question;
 		std::getline(std::cin, number_string);

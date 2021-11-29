@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 
-void	displayFile(std::string filename);
-std::string	getCommand(std::vector<std::string> options, std::string question);
-int		getNumberBetween(int a, int b, std::string question);
+void	displayFile(const std::string& filename);
+std::string	getCommand(std::vector<std::string> options, const std::string& question);
+int		getNumberBetween(int a, int b, const std::string& question);
 
 #endif
