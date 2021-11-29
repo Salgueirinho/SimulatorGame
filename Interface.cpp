@@ -3,36 +3,30 @@
 #include "Island.h"
 #include "utils.h"
 
-void	Interface::showMenu() const
+void	Interface::start() const
 {
 	std::string option; 
 
 	while (option.compare("exit"))
 	{
 		displayFile("mainmenu");
-		option = getOption({"play", "info", "exit"}, "Option: ");
-		option = option.substr(0, option.find(" "));
-		if (!option.compare("play"))
-			startGame();
-		else if (!option.compare("info"))
+		option = getOption({"play", "info", "exit"}, "Option: ").substr(0, option.find(" "));
+		if (option == "play")
+			game();
+		else if (option == "info")
 		{
 			displayFile("instructions");
-			option = getOption({"back", "exit"}, "Option: ");
+			option = getOption({"back", "exit"}, "Option: ").substr(0, option.find(" "));
 		}
 	}
 	std::cout << "See you next time!" << std::endl;
 }
 
-void	Interface::startGame() const
+void	Interface::game() const
 {
-	int	lines;
-	int	columns;
 	std::string	command;
 
-	std::cout << "";
-	lines = getNumberBetween(3, 8, "Number of rows for the island, please: ");
-	columns = getNumberBetween(3, 16, "Number of columns for the island, please: ");
-	Island	island(lines, columns);
+	Island	island(getNumberBetween(3, 8, "Rows for the island, please: "), getNumberBetween(3, 16, "Columns for the island, please: "));
 	while (command.compare(0, command.find(" "), "exit"))
 	{
 		island.displayZones();

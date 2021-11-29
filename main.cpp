@@ -3,6 +3,6 @@
 int	main()
 {
 	Interface	interface;
-	interface.showMenu();
+	interface.start();
 	return (0);
 }
