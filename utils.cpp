@@ -4,7 +4,7 @@
 #include <sstream>
 #include "utils.h"
 
-void	displayFile(std::string filepath)
+void displayFile(std::string filepath)
 {
 	std::fstream	fs;
 	fs.open(filepath);
