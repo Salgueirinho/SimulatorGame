@@ -10,7 +10,7 @@ class Zone {
 	public:
 		virtual std::string getType() const = 0;
 		virtual ~Zone() = default;
-		std::vector<std::string>	getWorkers() const;
+		std::string	getWorkers() const;
 		int	getNumberOfWorkers() const;
 		Building	*getBuilding() const;
 	private:
@@ -20,37 +20,37 @@ class Zone {
 
 class Desert : public Zone {
 	public:
-		std::string getType() const override {return "Desert";};
+		std::string getType() const override {return "dsr";};
 	private:
 };
 
 class Pasture : public Zone {
 	public:
-		std::string getType() const override {return "Pasture";};
+		std::string getType() const override {return "pas";};
 	private:
 };
 
 class Forest : public Zone {
 	public:
-		std::string getType() const override {return "Forest";};
+		std::string getType() const override {return "flr";};
 	private:
 };
 
 class Mountain : public Zone {
 	public:
-		std::string getType() const override {return "Mountain";};
+		std::string getType() const override {return "mnt";};
 	private:
 };
 
 class Swamp : public Zone {
 	public:
-		std::string getType() const override {return "Swamp";};
+		std::string getType() const override {return "pnt";};
 	private:
 };
 
 class ZoneX : public Zone{
 	public:
-		std::string getType() const override {return "ZoneX";};
+		std::string getType() const override {return "znZ";};
 	private:
 };
 

@@ -17,7 +17,7 @@ Island::Island(int rows, int columns)
 void	Island::randomizeZones()
 {
 	std::vector<Zone*> temp;
-	std::string zoneTypes[] = {"Desert", "Pasture", "Forest", "Mountain", "Swamp", "ZoneX"};
+	std::string zoneTypes[] = {"dsr", "pas", "flr", "mnt", "pnt", "znZ"};
 	while ((int) temp.size() < rows * columns)
 		temp.push_back(createNewZone(zoneTypes[temp.size() % 6]));
 	std::shuffle(temp.begin(), temp.end(), std::random_device());
@@ -39,10 +39,24 @@ Island::~Island()
 
 void	Island::displayZones() const
 {
+	std::cout << std::endl;
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < columns; j++)
 			std::cout << zones[i][j]->getType() << " ";
+		std::cout << std::endl;
+		for (int j = 0; j < columns; j++)
+		{
+			Building *building;
+			if ((building = zones[i][j]->getBuilding()) != 0)
+				std::cout << building->getType() << " ";
+		}
+		std::cout << std::endl;
+		for (int j = 0; j < columns; j++)
+			std::cout << zones[i][j]->getWorkers() << " ";
+		std::cout << std::endl;
+		for (int j = 0; j < columns; j++)
+			std::cout << zones[i][j]->getNumberOfWorkers() << " ";
 		std::cout << std::endl;
 	}
 }

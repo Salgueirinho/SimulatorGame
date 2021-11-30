@@ -3,25 +3,25 @@
 
 class Worker {
 	public:
-		virtual std::string getType() const = 0;
+		virtual char getType() const = 0;
 	private:
 };
 
 class Operator : public Worker {
 	public:
-		std::string getType() const override {return "Operator";};
+		char	getType() const override {return 'O';};
 	private:
 };
 
 class Lumberjack : public Worker {
 	public:
-		std::string getType() const override {return "Lumberjack";};
+		char	getType() const override {return 'L';};
 	private:
 };
 
 class Miner : public Worker {
 	public:
-		std::string getType() const override {return "Miner";};
+		char	getType() const override {return 'M';};
 	private:
 };
 

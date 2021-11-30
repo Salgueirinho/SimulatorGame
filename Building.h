@@ -9,37 +9,37 @@ class Building {
 
 class IronMine : public Building {
 	public:
-		std::string getType() const override {return "IronMine";};
+		std::string getType() const override {return "mnF";};
 	private:
 };
 
 class CoalMine : public Building {
 	public:
-		std::string getType() const override {return "CoalMine";};
+		std::string getType() const override {return "mnC";};
 	private:
 };
 
 class PowerPlant : public Building {
 	public:
-		std::string getType() const override {return "PowerPlant";};
+		std::string getType() const override {return "elec";};
 	private:
 };
 
 class Battery : public Building {
 	public:
-		std::string getType() const override {return "Battery";};
+		std::string getType() const override {return "bat";};
 	private:
 };
 
 class Foundry : public Building {
 	public:
-		std::string getType() const override {return "Foundry";};
+		std::string getType() const override {return "fun";};
 	private:
 };
 
 class BuildingX : public Building {
 	public:
-		std::string getType() const override {return "BuildingX";};
+		std::string getType() const override {return "edX";};
 	private:
 };
 

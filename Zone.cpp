@@ -1,11 +1,11 @@
 #include "Zone.h"
 
-std::vector<std::string>	Zone::getWorkers() const
+std::string	Zone::getWorkers() const
 {
-	std::vector<std::string>	workersAsString;
-	for (int i = 0; i < (int) workers.size(); i++)
-		workersAsString.push_back(workers[i]->getType());
-	return (workersAsString);
+	std::string	temp;
+	for (int i = 0; i < (int) workers.size() && i < 4; i++)
+		temp[i] = workers[i]->getType();
+	return (temp);
 }
 
 int	Zone::getNumberOfWorkers() const
@@ -20,15 +20,15 @@ Building	*Zone::getBuilding() const
 
 Zone	*createNewZone(const std::string &zoneType)
 {
-	if (zoneType == "Desert")
+	if (zoneType == "dsr")
 		return (new Desert[1]);
-	else if (zoneType == "Pasture")
+	else if (zoneType == "pas")
 		return (new Pasture[1]);
-	else if (zoneType == "Forest")
+	else if (zoneType == "flr")
 		return (new Forest[1]);
-	else if (zoneType == "Mountain")
+	else if (zoneType == "mnt")
 		return (new Mountain[1]);
-	else if (zoneType == "Swamp")
+	else if (zoneType == "pnt")
 		return (new Swamp[1]);
 	else
 		return (new ZoneX[1]);
