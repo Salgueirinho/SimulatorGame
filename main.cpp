@@ -4,5 +4,5 @@ int	main()
 {
 	Interface	interface;
 	interface.start();
-	return (0);
+	return 0;
 }

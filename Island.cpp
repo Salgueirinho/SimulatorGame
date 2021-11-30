@@ -48,7 +48,9 @@ void	Island::displayZones() const
 		for (int j = 0; j < columns; j++)
 		{
 			Building *building;
-			if ((building = zones[i][j]->getBuilding()) != 0)
+			if ((building = zones[i][j]->getBuilding()) == 0)
+				std::cout << "    ";
+			else
 				std::cout << building->getType() << " ";
 		}
 		std::cout << std::endl;
@@ -56,7 +58,17 @@ void	Island::displayZones() const
 			std::cout << zones[i][j]->getWorkers() << " ";
 		std::cout << std::endl;
 		for (int j = 0; j < columns; j++)
-			std::cout << zones[i][j]->getNumberOfWorkers() << " ";
+		{
+			int	n;
+			if ((n = zones[i][j]->getNumberOfWorkers()) < 10)
+				std::cout << n << "   ";
+			else if (n < 100)
+				std::cout << n << "  ";
+			else if (n < 1000)
+				std::cout << n << " ";
+			else
+				std::cout << "999+";
+		}
 		std::cout << std::endl;
 	}
 }

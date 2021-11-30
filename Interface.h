@@ -5,7 +5,6 @@ class	Interface {
 	public:
 		void	start() const;
 		void	game() const;
-	private:
 };
 
 #endif

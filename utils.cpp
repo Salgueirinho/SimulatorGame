@@ -26,7 +26,7 @@ std::string	getCommand(std::vector<std::string> options, const std::string& ques
 		std::cout << question;
 		std::getline(std::cin, command);
 		if (std::find(options.begin(), options.end(),  command.substr(0, command.find(' '))) != options.end())
-			return (command);
+			return command;
 		else
 			std::cout << "Please insert a valid option/command!" << std::endl;
 	}
@@ -44,7 +44,7 @@ int		getNumberBetween(int a, int b, const std::string& question)
 		std::stringstream ss(number_string);
 		ss >> number;
 		if (!ss.fail() && (a <= number && number <= b))
-			return (number);
+			return number;
 		else
 			std::cout << "Please insert a number between " << a << " and " << b << "!" << std::endl;
 	}
