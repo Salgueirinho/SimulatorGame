@@ -49,6 +49,6 @@ class ZoneX : public Zone{
 		std::string getType() const override {return "znZ";};
 };
 
-Zone	*createNewZone(const std::string &zoneType);
+Zone	*createZone(const std::string &zoneType);
 
 #endif

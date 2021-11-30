@@ -19,7 +19,7 @@ void	Island::randomizeZones()
 	std::vector<Zone*> temp;
 	std::string zoneTypes[] = {"dsr", "pas", "flr", "mnt", "pnt", "znZ"};
 	while ((int) temp.size() < rows * columns)
-		temp.push_back(createNewZone(zoneTypes[temp.size() % 6]));
+		temp.push_back(createZone(zoneTypes[temp.size() % 6]));
 	std::shuffle(temp.begin(), temp.end(), std::random_device());
 	for (int i = 0; i < rows; i++)
 		for (int j = 0; j < columns; j++)

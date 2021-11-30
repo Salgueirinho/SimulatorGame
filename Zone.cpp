@@ -44,7 +44,7 @@ Zone::~Zone()
 	delete [] building;
 }
 
-Zone	*createNewZone(const std::string &zoneType)
+Zone	*createZone(const std::string &zoneType)
 {
 	if (zoneType == "dsr")
 		return new Desert[1];
