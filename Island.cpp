@@ -56,19 +56,17 @@ void	Island::displayZones() const
 		}
 		std::cout << std::endl;
 		for (j = 0; j < columns; j++)
-			std::cout << zones[i][j]->getWorkers() << " ";
+			std::cout << zones[i][j]->getWorkers();
 		std::cout << std::endl;
 		for (j = 0; j < columns; j++)
 		{
-			int	n;
-			if ((n = zones[i][j]->getNumberOfWorkers()) < 10)
+			int n = zones[i][j]->getNumberOfWorkers();
+			if (n <= 9)
 				std::cout << n << "   ";
-			else if (n <= 9)
-				std::cout << n << "  ";
 			else if (n <= 99)
-				std::cout << n << " ";
+				std::cout << n << "  ";
 			else if (n <= 999)
-				std::cout << n;
+				std::cout << n << " ";
 			else
 				std::cout << "999+";
 		}
