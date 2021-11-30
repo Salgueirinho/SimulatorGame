@@ -62,10 +62,12 @@ void	Island::displayZones() const
 			int	n;
 			if ((n = zones[i][j]->getNumberOfWorkers()) < 10)
 				std::cout << n << "   ";
-			else if (n < 100)
+			else if (n <= 9)
 				std::cout << n << "  ";
-			else if (n < 1000)
+			else if (n <= 99)
 				std::cout << n << " ";
+			else if (n <= 999)
+				std::cout << n;
 			else
 				std::cout << "999+";
 		}
