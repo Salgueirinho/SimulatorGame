@@ -1,7 +1,7 @@
 #ifndef ISLAND_H
 #define ISLAND_H
 
-#include "Zone.h"
+#include "Zone/Zone.h"
 
 class Island {
 	public:

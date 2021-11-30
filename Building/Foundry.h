@@ -7,6 +7,8 @@ class Foundry : public Building {
 	public:
 		std::string getType() const override {return "fun";};
 		void work() const override {};
+	private:
+		int	steel;
 };
 
 #endif

@@ -3,8 +3,8 @@
 
 #include <vector>
 #include <string>
-#include "Building.h"
-#include "Worker.h"
+#include "../Building/Building.h"
+#include "../Worker/Worker.h"
 
 class Zone {
 	public:

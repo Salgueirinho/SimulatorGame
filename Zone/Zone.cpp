@@ -5,12 +5,12 @@
 #include "Mountain.h"
 #include "Swamp.h"
 #include "ZoneX.h"
-#include "IronMine.h"
-#include "CoalMine.h"
-#include "PowerPlant.h"
-#include "Battery.h"
-#include "Foundry.h"
-#include "BuildingX.h"
+#include "../Building/IronMine.h"
+#include "../Building/CoalMine.h"
+#include "../Building/PowerPlant.h"
+#include "../Building/Battery.h"
+#include "../Building/Foundry.h"
+#include "../Building/BuildingX.h"
 
 std::string	Zone::getWorkers() const
 {
