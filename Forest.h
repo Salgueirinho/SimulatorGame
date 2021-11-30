@@ -6,6 +6,9 @@
 class Forest : public Zone {
 	public:
 		std::string getType() const override {return "flr";};
+		Forest();
+	private:
+		int	trees;
 };
 
 #endif
