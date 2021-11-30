@@ -4,13 +4,13 @@
 class Resources {
 	public:
 	private:
-		int	iron;
-		int	steel;
-		int	coal;
-		int	wood;
-		int	woodPlanks;
-		int	electricity;
-		int	cash;
+		int	iron = 0;
+		int	steel = 0;
+		int	coal = 0;
+		int	wood = 0;
+		int	woodPlanks = 0;
+		int	electricity = 0;
+		int	cash = 0;
 };
 
 #endif
