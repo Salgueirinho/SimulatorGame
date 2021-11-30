@@ -19,36 +19,6 @@ class Zone {
 		Building	*building;
 };
 
-class Desert : public Zone {
-	public:
-		std::string getType() const override {return "dsr";};
-};
-
-class Pasture : public Zone {
-	public:
-		std::string getType() const override {return "pas";};
-};
-
-class Forest : public Zone {
-	public:
-		std::string getType() const override {return "flr";};
-};
-
-class Mountain : public Zone {
-	public:
-		std::string getType() const override {return "mnt";};
-};
-
-class Swamp : public Zone {
-	public:
-		std::string getType() const override {return "pnt";};
-};
-
-class ZoneX : public Zone{
-	public:
-		std::string getType() const override {return "znZ";};
-};
-
 Zone	*createZone(const std::string &zoneType);
 
 #endif

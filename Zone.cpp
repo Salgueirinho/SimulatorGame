@@ -1,4 +1,16 @@
 #include "Zone.h"
+#include "Desert.h"
+#include "Pasture.h"
+#include "Forest.h"
+#include "Mountain.h"
+#include "Swamp.h"
+#include "ZoneX.h"
+#include "IronMine.h"
+#include "CoalMine.h"
+#include "PowerPlant.h"
+#include "Battery.h"
+#include "Foundry.h"
+#include "BuildingX.h"
 
 std::string	Zone::getWorkers() const
 {
