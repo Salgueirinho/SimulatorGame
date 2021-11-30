@@ -21,6 +21,29 @@ Building	*Zone::getBuilding() const
 	return building;
 }
 
+void	Zone::setBuilding(std::string &buildingType)
+{
+	if (buildingType == "mnF")
+		building = new IronMine[1];
+	else if (buildingType == "mnC")
+		building = new CoalMine[1];
+	else if (buildingType == "cen")
+		building = new PowerPlant[1];
+	else if (buildingType == "bat")
+		building = new Battery[1];
+	else if (buildingType == "fun")
+		building = new Foundry[1];
+	else
+		building = new BuildingX[1];
+}
+
+Zone::~Zone()
+{
+	for (auto worker : workers)
+		delete [] worker;
+	delete [] building;
+}
+
 Zone	*createNewZone(const std::string &zoneType)
 {
 	if (zoneType == "dsr")

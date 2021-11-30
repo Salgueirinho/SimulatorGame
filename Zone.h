@@ -9,10 +9,11 @@
 class Zone {
 	public:
 		virtual std::string getType() const = 0;
-		virtual ~Zone() = default;
+		virtual ~Zone();
 		std::string	getWorkers() const;
 		int	getNumberOfWorkers() const;
 		Building	*getBuilding() const;
+		void	setBuilding(std::string &buildingType);
 	private:
 		std::vector<Worker*>	workers;
 		Building	*building;
