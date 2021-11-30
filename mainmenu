@@ -5,7 +5,7 @@
 #  # #   # #   # #
 #### #   # #   # ####
 
- > Play           -- digit "play"
- > Instructions   -- digit "info"
- > Exit           -- digit "exit"
+ > Play
+ > Info
+ > Exit
 

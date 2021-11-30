@@ -28,7 +28,11 @@ std::string	getCommand(std::vector<std::string> options, const std::string& ques
 		if (std::find(options.begin(), options.end(),  command.substr(0, command.find(' '))) != options.end())
 			return command;
 		else
-			std::cout << "Please insert a valid option/command!" << std::endl;
+		{
+			std::cout << "Please insert a valid option/command:" << std::endl;
+			for (int i = 0; i < (int) options.size(); i++)
+				std::cout  << " -" << options[i] << std::endl;
+		}
 	}
 }
 

@@ -78,6 +78,6 @@ debkill <worker_id>
 
 - Removes worker
 
- > Back           -- digit "back"
- > Exit           -- digit "exit"
+ > Back
+ > Exit
 

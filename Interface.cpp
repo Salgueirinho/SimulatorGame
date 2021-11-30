@@ -15,7 +15,7 @@ void	Interface::start() const
 			game();
 		else if (option == "info")
 		{
-			displayFile("instructions");
+			displayFile("info");
 			option = getCommand({"back", "exit"}, "Option: ").substr(0, option.find(' '));
 		}
 	}
