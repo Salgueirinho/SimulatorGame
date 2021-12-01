@@ -40,37 +40,43 @@ Island::~Island()
 
 void	Island::displayZones() const
 {
-	std::cout << std::endl;
+	int	j;
 	for (int i = 0; i < rows; i++)
 	{
-		int	j = 0;
-		for (; j < columns; j++)
-			std::cout << zones[i][j]->getType() << " ";
-		std::cout << std::endl;
+		std::cout << std::endl << "_";
+		for (j = 0; j < columns; j++)
+			std::cout << "_____";
+		std::cout << std::endl << "|";
+		for (j = 0; j < columns; j++)
+			std::cout << zones[i][j]->getType() << " |";
+		std::cout << std::endl << "|";
 		for (j = 0; j < columns; j++)
 		{
 			Building *building;
 			if ((building = zones[i][j]->getBuilding()) == 0)
-				std::cout << "    ";
+				std::cout << "    |";
 			else
-				std::cout << building->getType() << " ";
+				std::cout << building->getType() << " |";
 		}
-		std::cout << std::endl;
+		std::cout << std::endl << "|";
 		for (j = 0; j < columns; j++)
-			std::cout << zones[i][j]->getWorkers();
-		std::cout << std::endl;
+			std::cout << zones[i][j]->getWorkers() << "|";
+		std::cout << std::endl << "|";
 		for (j = 0; j < columns; j++)
 		{
 			int n = zones[i][j]->getNumberOfWorkers();
 			if (n <= 9)
-				std::cout << n << "   ";
+				std::cout << n << "   |";
 			else if (n <= 99)
-				std::cout << n << "  ";
+				std::cout << n << "  |";
 			else if (n <= 999)
-				std::cout << n << " ";
+				std::cout << n << " |";
 			else
-				std::cout << "999+";
+				std::cout << "999+|";
 		}
-		std::cout << std::endl;
 	}
+	std::cout << std::endl << "_";
+	for (j = 0; j < columns; j++)
+		std::cout << "_____";
+	std::cout << std::endl;
 }
