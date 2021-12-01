@@ -5,7 +5,7 @@
 
 class Island {
 	public:
-		Island(int lines, int columns);
+		Island();
 		~Island();
 		void randomizeZones();
 		void displayZones() const;

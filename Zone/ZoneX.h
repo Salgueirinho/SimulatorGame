@@ -6,6 +6,7 @@
 class ZoneX : public Zone{
 	public:
 		std::string getType() const override {return "znZ";};
+		~ZoneX() override {};
 };
 
 #endif

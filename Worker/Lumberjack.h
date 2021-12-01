@@ -6,6 +6,7 @@
 class Lumberjack : public Worker {
 	public:
 		char	getType() const override {return 'L';};
+		~Lumberjack() override {};
 };
 
 #endif

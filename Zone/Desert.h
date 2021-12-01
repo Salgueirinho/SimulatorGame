@@ -6,6 +6,7 @@
 class Desert : public Zone {
 	public:
 		std::string getType() const override {return "dsr";};
+		~Desert() override {};
 };
 
 #endif

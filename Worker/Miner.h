@@ -6,6 +6,7 @@
 class Miner : public Worker {
 	public:
 		char	getType() const override {return 'M';};
+		~Miner() override {};
 };
 
 #endif

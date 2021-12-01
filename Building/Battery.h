@@ -7,6 +7,7 @@ class Battery : public Building {
 	public:
 		std::string getType() const override {return "bat";};
 		void work() const override {};
+		~Battery () override {};
 	private:
 		int	electricity = 0;
 };

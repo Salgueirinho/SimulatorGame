@@ -6,6 +6,7 @@
 class Swamp : public Zone {
 	public:
 		std::string getType() const override {return "pnt";};
+		~Swamp () override {};
 };
 
 #endif

@@ -4,6 +4,7 @@
 class Worker {
 	public:
 		virtual char getType() const = 0;
+		virtual	~Worker() = default;
 };
 
 #endif

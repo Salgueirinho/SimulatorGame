@@ -3,12 +3,13 @@
 #include <algorithm>
 #include <random>
 #include "Island.h"
+#include "utils.h"
 
-Island::Island(int rows, int columns)
+Island::Island()
 {
-	this->rows = rows;
-	this->columns = columns;
-	this->zones = new Zone**[rows];
+	rows = getNumberBetween(3, 8, "Rows for the island, please: ");
+	columns = getNumberBetween(3, 16, "Columnsn for the island, please: ");
+	zones = new Zone**[rows];
 	for (int i = 0; i < rows; i++)
 		zones[i] = new Zone*[columns];
 	randomizeZones();
@@ -31,7 +32,7 @@ Island::~Island()
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < columns; j++)
-			delete [] zones[i][j];
+			delete zones[i][j];
 		delete [] zones[i];
 	}
 	delete [] zones;
