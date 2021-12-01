@@ -17,9 +17,9 @@ std::string	Zone::getWorkers() const
 	int	i = 0;
 	std::string	temp;
 	for (; i < (int) workers.size() && i < 4; i++)
-		temp[i] = workers[i]->getType();
+		temp += workers[i]->getType();
 	for (; i < 4; i++)
-		temp[i] = ' ';
+		temp += ' ';
 	return temp;
 }
 
