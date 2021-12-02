@@ -69,3 +69,25 @@ bool	contains(std::vector<std::string> v, const std::string &str)
 {
 	return (std::find(v.begin(), v.end(), str) != v.end());
 }
+
+int		toInt(const std::string &str)
+{
+	int	num;
+	std::stringstream ss(str);
+	ss >> num;
+	if (ss.fail())
+		return -1;
+	else
+		return num;
+}
+
+float	toFloat(const std::string &str)
+{
+	float	num;
+	std::stringstream ss(str);
+	ss >> num;
+	if (ss.fail())
+		return -1;
+	else
+		return num;
+}
