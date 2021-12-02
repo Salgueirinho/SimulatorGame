@@ -8,7 +8,7 @@
 Island::Island()
 {
 	rows = getNumberBetween(3, 8, "Rows for the island, please: ");
-	columns = getNumberBetween(3, 16, "Columnsn for the island, please: ");
+	columns = getNumberBetween(3, 16, "Columns for the island, please: ");
 	zones = new Zone**[rows];
 	for (int i = 0; i < rows; i++)
 		zones[i] = new Zone*[columns];

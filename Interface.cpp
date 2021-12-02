@@ -3,6 +3,26 @@
 #include "Island.h"
 #include "utils.h"
 
+std::map<std::string, std::vector<std::string>> Interface::commands = {
+	{"exec",		{"nomeFicheiro"}},
+	{"cons",		{"tipo", "linha", "coluna"}},
+	{"liga",		{"linha", "coluna"}},
+	{"des",			{"linha", "coluna"}},
+	{"move",		{"id", "linha", "coluna"}},
+	{"vende",		{"tipo", "quanto"}},
+	{"cont",		{"tipo"}},
+	{"list",		{"linha", "coluna"}},
+	{"vende",		{"linha", "coluna"}},
+	{"next",		{}},
+	{"save",		{"nome"}},
+	{"load",		{"nome"}},
+	{"apaga",		{"ficheiro"}},
+	{"config",	{"valor"}},
+	{"debcash",	{"valor"}},
+	{"debed",		{"tipo", "linha", "coluna"}},
+	{"debkill",	{"id"}}
+};
+
 void	Interface::start() const
 {
 	std::string option; 

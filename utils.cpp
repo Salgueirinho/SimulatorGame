@@ -31,7 +31,7 @@ std::string	getOption(std::vector<std::string> options, const std::string& quest
 		{
 			std::cout << "Please insert a valid option:" << std::endl;
 			for (int i = 0; i < (int) options.size(); i++)
-				std::cout  << " -" << options[i] << std::endl;
+				std::cout  << " - " << options[i] << std::endl;
 		}
 	}
 }
@@ -52,4 +52,20 @@ int		getNumberBetween(int a, int b, const std::string& question)
 		else
 			std::cout << "Please insert a number between " << a << " and " << b << "!" << std::endl;
 	}
+}
+
+std::vector<std::string>	split(const std::string &s)
+{
+	std::vector<std::string>	result;
+	std::stringstream	ss(s);
+	std::string item;
+
+	while (std::getline(ss, item, ' '))
+		result.push_back(item);
+	return result;
+}
+
+bool	contains(std::vector<std::string> v, const std::string &str)
+{
+	return (std::find(v.begin(), v.end(), str) != v.end());
 }
