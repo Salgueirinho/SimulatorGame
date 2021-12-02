@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Interface.h"
+#include "command.h"
 #include "Island.h"
 #include "utils.h"
 
@@ -20,7 +21,8 @@ std::map<std::string, std::vector<std::string>> Interface::commands = {
 	{"config",	{"valor"}},
 	{"debcash",	{"valor"}},
 	{"debed",		{"tipo", "linha", "coluna"}},
-	{"debkill",	{"id"}}
+	{"debkill",	{"id"}},
+	{"exit",		{}}
 };
 
 void	Interface::start() const
@@ -50,6 +52,6 @@ void	Interface::game() const
 	while (command != "exit")
 	{
 		island.displayZones();
-		command = getOption({"exit"}, "Command: ");
+		command = getCommand();
 	}
 }
