@@ -1,6 +1,6 @@
 NAME = game
 
-SOURCES =	Command.cpp \
+SOURCES =	command.cpp \
 					Interface.cpp \
 					utils.cpp \
 					main.cpp \
@@ -15,27 +15,24 @@ CC = g++
 
 CFLAGS = -Wall -Wextra -Werror -pedantic -I.
 
-all: $(OBJECTS)
+all: $(NAME)
+
+$(NAME): $(OBJECTS)
 	@echo Compiling executable \'$(NAME)\'...
 	@$(CC) -o $(NAME) $(OBJECTS)
 
-.obj:
+.obj/%.o: %.cpp
 	@mkdir -p .obj
 	@mkdir -p .obj/Building
 	@mkdir -p .obj/Worker
 	@mkdir -p .obj/Zone
-
-.obj/%.o: %.cpp .obj
 	@echo Compiling $@...
 	@$(CC) -c -o $@ $< $(CFLAGS)
-
-run: all
-	./$(NAME)
 
 clean:
 	@rm -f $(NAME)
 
-fclean:
+fclean: clean
 	@rm -rf .obj
 
 re: fclean all

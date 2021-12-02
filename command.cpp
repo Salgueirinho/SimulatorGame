@@ -17,8 +17,6 @@ std::string	getCommand()
 		std::getline(std::cin, buffer);
 		command = split(buffer);
 		validity = checkCommand(command);
-		if (!validity)
-			std::cout << "Command invalid!" << std::endl;
 	}
 	std::cout << "Command valid!" << std::endl;
 	return command[0];
@@ -26,6 +24,7 @@ std::string	getCommand()
 
 bool	checkFormatArguments(const std::vector<std::string> &command)
 {
+	(void) command;
 	return true;
 }
 
