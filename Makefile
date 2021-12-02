@@ -16,14 +16,18 @@ CC = g++
 CFLAGS = -Wall -Wextra -Werror -pedantic -I.
 
 all: $(OBJECTS)
-	$(CC) -o $(NAME) $(OBJECTS)
+	@echo Compiling executable \'$(NAME)\'...
+	@$(CC) -o $(NAME) $(OBJECTS)
 
-.obj/%.o: %.cpp
+.obj:
 	@mkdir -p .obj
 	@mkdir -p .obj/Building
 	@mkdir -p .obj/Worker
 	@mkdir -p .obj/Zone
-	$(CC) -c -o $@ $< $(CFLAGS)
+
+.obj/%.o: %.cpp .obj
+	@echo Compiling $@...
+	@$(CC) -c -o $@ $< $(CFLAGS)
 
 run: all
 	./$(NAME)
