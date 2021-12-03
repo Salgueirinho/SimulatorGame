@@ -6,7 +6,7 @@
 class Operator : public Worker {
 	public:
 		char	getType() const override {return 'O';};
-		~Operator() override {};
+		~Operator() override = default;
 };
 
 #endif

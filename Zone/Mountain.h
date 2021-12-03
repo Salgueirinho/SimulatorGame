@@ -6,7 +6,7 @@
 class Mountain : public Zone {
 	public:
 		std::string getType() const override {return "mnt";};
-		~Mountain() override {};
+		~Mountain() override = default;
 };
 
 #endif

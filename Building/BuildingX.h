@@ -6,7 +6,7 @@
 class BuildingX : public Building {
 	public:
 		std::string getType() const override {return "edX";};
-		~BuildingX () override {};
+		~BuildingX () override = default;
 		void work() const override {};
 };
 

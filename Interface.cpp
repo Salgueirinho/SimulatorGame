@@ -25,11 +25,11 @@ std::map<std::string, std::vector<std::string>> Interface::commands = {
 	{"exit",		{}}
 };
 
-void	Interface::start() const
+void	Interface::start()
 {
 	std::string option; 
 
-	while (option.compare("exit"))
+	while (option != "exit")
 	{
 		displayFile("mainmenu");
 		option = getOption({"play", "info", "exit"}, "Option: ");
@@ -44,7 +44,7 @@ void	Interface::start() const
 	std::cout << "See you next time!" << std::endl;
 }
 
-void	Interface::game() const
+void	Interface::game()
 {
 	std::vector<std::string>	command = {""};
 

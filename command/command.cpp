@@ -5,25 +5,6 @@
 #include "../Interface.h"
 #include "../utils.h"
 
-std::vector<std::string>	getCommand()
-{
-	std::string	buffer;
-	bool				validity = false;
-	std::vector<std::string>	command;
-
-	while (!validity)
-	{
-		std::cout << "Command: ";
-		std::getline(std::cin, buffer);
-		if (0 < buffer.size())
-		{
-			command = split(buffer);
-			validity = checkCommand(command);
-		}
-	}
-	return command;
-}
-
 void	executeCommand(const std::vector<std::string> &command)
 {
 	(void) command;
@@ -51,7 +32,7 @@ bool	checkFormatArguments(const std::vector<std::string> &command)
 	return false;
 }
 
-bool	checkNumberArguments(const std::vector<std::string> &command, std::pair<std::string, std::vector<std::string>> command_pair)
+bool	checkNumberArguments(const std::vector<std::string> &command, const std::pair<std::string, std::vector<std::string>> &command_pair)
 {
 	if (command_pair.second.size() == command.size() - 1)
 		if (checkFormatArguments(command))
@@ -68,4 +49,23 @@ bool	checkCommand(const std::vector<std::string> &command)
 		if (elem.first == command[0])
 			return checkNumberArguments(command, elem);
 	return false;
+}
+
+std::vector<std::string>	getCommand()
+{
+	std::string	buffer;
+	bool				validity = false;
+	std::vector<std::string>	command;
+
+	while (!validity)
+	{
+		std::cout << "Command: ";
+		std::getline(std::cin, buffer);
+		if (!buffer.empty())
+		{
+			command = split(buffer);
+			validity = checkCommand(command);
+		}
+	}
+	return command;
 }

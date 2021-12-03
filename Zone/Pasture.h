@@ -6,7 +6,7 @@
 class Pasture : public Zone {
 	public:
 		std::string getType() const override {return "pas";};
-		~Pasture () override {};
+		~Pasture () override = default;
 };
 
 #endif

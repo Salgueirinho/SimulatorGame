@@ -30,8 +30,8 @@ std::string	getOption(std::vector<std::string> options, const std::string& quest
 		else
 		{
 			std::cout << "Please insert a valid option:" << std::endl;
-			for (int i = 0; i < (int) options.size(); i++)
-				std::cout  << " - " << options[i] << std::endl;
+			for (auto & option_ : options)
+				std::cout  << " - " << option_ << std::endl;
 		}
 	}
 }

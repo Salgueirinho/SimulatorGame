@@ -2,7 +2,6 @@
 
 int	main()
 {
-	Interface	interface;
-	interface.start();
+	Interface::start();
 	return 0;
 }

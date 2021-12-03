@@ -51,10 +51,9 @@ void	Zone::setBuilding(std::string &buildingType)
 
 Zone::~Zone()
 {
-	for (int i = 0; i < (int) workers.size(); i++)
-		delete workers[i];
-	if (building != 0)
-		delete building;
+	for (auto & worker : workers)
+		delete worker;
+	delete building;
 }
 
 Zone	*createZone(const std::string &zoneType)

@@ -53,7 +53,7 @@ void	Island::displayZones() const
 		for (j = 0; j < columns; j++)
 		{
 			Building *building;
-			if ((building = zones[i][j]->getBuilding()) == 0)
+			if ((building = zones[i][j]->getBuilding()) == nullptr)
 				std::cout << "    |";
 			else
 				std::cout << building->getType() << " |";

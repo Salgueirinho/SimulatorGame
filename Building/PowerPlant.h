@@ -6,7 +6,7 @@
 class PowerPlant : public Building {
 	public:
 		std::string getType() const override {return "cen";};
-		void work() const override {};
+		void work() const override = default;
 		~PowerPlant() override {};
 	private:
 		int	coal = 0;

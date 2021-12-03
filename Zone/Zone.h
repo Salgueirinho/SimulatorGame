@@ -16,7 +16,7 @@ class Zone {
 		void	setBuilding(std::string &buildingType);
 	private:
 		std::vector<Worker*>	workers;
-		Building	*building = NULL;
+		Building	*building = nullptr;
 };
 
 Zone	*createZone(const std::string &zoneType);
