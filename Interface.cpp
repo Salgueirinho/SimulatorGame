@@ -46,12 +46,14 @@ void	Interface::start() const
 
 void	Interface::game() const
 {
-	std::string	command;
+	std::vector<std::string>	command = {""};
 
 	Island	island;
-	while (command != "exit")
+	while (command[0] != "exit")
 	{
 		island.displayZones();
 		command = getCommand();
+		if (command[0] != "exit")
+			executeCommand(command);
 	}
 }
