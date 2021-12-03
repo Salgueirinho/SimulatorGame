@@ -5,21 +5,23 @@
 #include "../Interface.h"
 #include "../utils.h"
 
-std::string	getCommand()
+std::vector<std::string>	getCommand()
 {
 	std::string	buffer;
 	bool				validity = false;
-	std::vector<std::string>	command = {""};
+	std::vector<std::string>	command;
 
 	while (!validity)
 	{
 		std::cout << "Command: ";
 		std::getline(std::cin, buffer);
-		command = split(buffer);
-		validity = checkCommand(command);
+		if (0 < buffer.size())
+		{
+			command = split(buffer);
+			validity = checkCommand(command);
+		}
 	}
-	executeCommand(command);
-	return command[0];
+	return command;
 }
 
 void	executeCommand(const std::vector<std::string> &command)
