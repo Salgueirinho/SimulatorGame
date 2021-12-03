@@ -1,9 +1,9 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include "Interface.h"
 #include "command.h"
-#include "utils.h"
+#include "../Interface.h"
+#include "../utils.h"
 
 std::string	getCommand()
 {
@@ -30,7 +30,7 @@ void	executeCommand(const std::vector<std::string> &command)
 bool	checkFormatArguments(const std::vector<std::string> &command)
 {
 	if (contains({"exec", "next", "save", "load", "apaga", "config", "exit"}, command[0])
-	|| command[0] == "list" && command.size() == 1)
+	|| (command[0] == "list" && command.size() == 1))
 		return true;
 	else if (contains({"liga", "des", "list", "vende"}, command[0]))
 		return toInt(command[1]) != -1 && toInt(command[2]) != -1;

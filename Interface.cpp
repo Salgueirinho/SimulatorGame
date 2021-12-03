@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Interface.h"
-#include "command.h"
+#include "command/command.h"
 #include "Island.h"
 #include "utils.h"
 

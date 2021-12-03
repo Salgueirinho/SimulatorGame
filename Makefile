@@ -1,7 +1,7 @@
 NAME = game
 
-SOURCES =	command.cpp \
-					Interface.cpp \
+SOURCES =	Interface.cpp \
+					command/command.cpp \
 					utils.cpp \
 					main.cpp \
 					Island.cpp \
@@ -26,6 +26,7 @@ $(NAME): $(OBJECTS)
 	@mkdir -p .obj/Building
 	@mkdir -p .obj/Worker
 	@mkdir -p .obj/Zone
+	@mkdir -p .obj/command
 	@echo Compiling $@...
 	@$(CC) -c -o $@ $< $(CFLAGS)
 
