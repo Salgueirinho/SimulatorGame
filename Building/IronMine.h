@@ -6,8 +6,8 @@
 class IronMine : public Building {
 	public:
 		std::string getType() const override {return "mnF";};
-		void work() const override = default;
-		~IronMine() override {};
+		void work() const override {};
+		~IronMine() override = default;
 	private:
 		int	iron = 0;
 		int	level = 1;

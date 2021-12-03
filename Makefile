@@ -1,13 +1,13 @@
 NAME = game
 
 SOURCES =	Interface.cpp \
-					command/command.cpp \
-					utils.cpp \
-					main.cpp \
-					Island.cpp \
-					Building/Building.cpp \
-					Zone/Zone.cpp \
-					Zone/Forest.cpp \
+		command/command.cpp \
+		utils.cpp \
+		main.cpp \
+		Island.cpp \
+		Building/Building.cpp \
+		Zone/Zone.cpp \
+		Zone/Forest.cpp \
 
 OBJECTS = $(patsubst %.cpp, .obj/%.o, $(SOURCES))
 
