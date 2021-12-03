@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Interface.h"
-#include "command/command.h"
-#include "Island.h"
-#include "utils.h"
+#include "../command/command.h"
+#include "../Island/Island.h"
+#include "../utils/utils.h"
 
 std::map<std::string, std::vector<std::string>> Interface::commands = {
 	{"exec",		{"nomeFicheiro"}},
@@ -31,13 +31,13 @@ void	Interface::start()
 
 	while (option != "exit")
 	{
-		displayFile("mainmenu");
+		displayFile("textfiles/mainmenu.txt");
 		option = getOption({"play", "info", "exit"}, "Option: ");
 		if (option == "play")
 			game();
 		else if (option == "info")
 		{
-			displayFile("info");
+			displayFile("textfiles/info.txt");
 			option = getOption({"back", "exit"}, "Option: ");
 		}
 	}

@@ -2,8 +2,8 @@
 #include <sstream>
 #include <vector>
 #include "command.h"
-#include "../Interface.h"
-#include "../utils.h"
+#include "../Interface/Interface.h"
+#include "../utils/utils.h"
 
 void	executeCommand(const std::vector<std::string> &command)
 {

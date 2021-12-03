@@ -1,10 +1,10 @@
 NAME = game
 
-SOURCES =	Interface.cpp \
+SOURCES =	Interface/Interface.cpp \
 		command/command.cpp \
-		utils.cpp \
+		utils/utils.cpp \
 		main.cpp \
-		Island.cpp \
+		Island/Island.cpp \
 		Building/Building.cpp \
 		Zone/Zone.cpp \
 		Zone/Forest.cpp \
@@ -23,10 +23,13 @@ $(NAME): $(OBJECTS)
 
 .obj/%.o: %.cpp
 	@mkdir -p .obj
+	@mkdir -p .obj/Interface
 	@mkdir -p .obj/Building
-	@mkdir -p .obj/Worker
-	@mkdir -p .obj/Zone
 	@mkdir -p .obj/command
+	@mkdir -p .obj/Island
+	@mkdir -p .obj/Worker
+	@mkdir -p .obj/utils
+	@mkdir -p .obj/Zone
 	@echo Compiling $@...
 	@$(CC) -c -o $@ $< $(CFLAGS)
 
