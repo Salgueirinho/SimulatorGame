@@ -52,16 +52,11 @@ bool	checkFormatArguments(const std::vector<std::string> &command)
 bool	checkNumberArguments(const std::vector<std::string> &command, std::pair<std::string, std::vector<std::string>> command_pair)
 {
 	if (command_pair.second.size() == command.size() - 1)
-	{
 		if (checkFormatArguments(command))
 			return true;
-		else
-			std::cout << "Format of arguments invalid!" << std::endl;
-	}
-	else if (command_pair.first == "list" && command.size() == 1)
+	if (command_pair.first == "list" && command.size() == 1)
 		return true;
-	else
-		std::cout << "Number of arguments invalid!" << std::endl;
+	std::cout << "Format of arguments invalid!" << std::endl;
 	return false;
 }
 
