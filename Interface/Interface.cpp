@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Interface.h"
-#include "../Island/Island.h"
 #include "../utils/utils.h"
 #include "../error/error.h"
 
@@ -52,7 +51,7 @@ std::vector<std::string>	Interface::getCommand()
 		if (!buffer.empty())
 		{
 			command = split(buffer);
-			error_code = game->checkCommand(command);
+			error_code = Game::checkCommand(command);
 			std::cout << parseErrorCode(error_code);
 		}
 	}

@@ -5,7 +5,7 @@
 #include "Island.h"
 #include "../utils/utils.h"
 
-Island::Island(int rows, int columns)
+Island::Island(const int rows, const int columns)
 {
 	this->rows = rows;
 	this->columns = columns;

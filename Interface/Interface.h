@@ -8,8 +8,8 @@
 
 class	Interface {
 	public:
-		Interface(Game *g) : game(g) {};
-		std::vector<std::string>	getCommand();
+		explicit	Interface(Game *g) : game(g) {};
+		static std::vector<std::string>	getCommand();
 		void	menu();
 		void	start();
 	private:
