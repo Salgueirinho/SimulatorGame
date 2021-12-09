@@ -1,4 +1,4 @@
-#include "error.h"
+#include "errors.h"
 
 std::string	parseErrorCode(const int error_code)
 {

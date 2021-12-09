@@ -9,10 +9,12 @@ class Island {
 		~Island();
 		void randomizeZones();
 		std::string	getAsString() const;
+		int	getRows() const {return rows;}
+		int	getColumns() const {return columns;}
 	private:
+		Zone ***zones;
 		int	rows;
 		int	columns;
-		Zone ***zones;
 };
 
 #endif

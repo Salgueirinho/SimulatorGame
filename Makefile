@@ -8,7 +8,8 @@ SOURCES =	Interface/Interface.cpp \
 		Zone/Zone.cpp \
 		Zone/Forest.cpp \
 		Game/Game.cpp \
-		error/error.cpp \
+		Game/commands.cpp \
+		errors/errors.cpp \
 
 OBJECTS = $(patsubst %.cpp, .obj/%.o, $(SOURCES))
 
@@ -31,7 +32,7 @@ $(NAME): $(OBJECTS)
 	@mkdir -p .obj/utils
 	@mkdir -p .obj/Zone
 	@mkdir -p .obj/Game
-	@mkdir -p .obj/error
+	@mkdir -p .obj/errors
 	@echo Compiling $@...
 	@$(CC) -c -o $@ $< $(CFLAGS)
 

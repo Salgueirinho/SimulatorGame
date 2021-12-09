@@ -6,6 +6,7 @@
 const int	COMMAND_ERROR = 1;
 const int	NUMBER_ARGS_ERROR = 2;
 const int	FORMAT_ARGS_ERROR = 3;
+const	int	COORDINATE_ERROR = 4;
 
 std::string	parseErrorCode(int error_code);
 

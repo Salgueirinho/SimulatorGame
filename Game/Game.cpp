@@ -3,7 +3,7 @@
 #include "Game.h"
 #include "../Interface/Interface.h"
 #include "../utils/utils.h"
-#include "../error/error.h"
+#include "../errors/errors.h"
 
 std::map<std::string, std::vector<std::string>> Game::commands = {
 	{"exec",		{"nomeFicheiro"}},
@@ -26,15 +26,15 @@ std::map<std::string, std::vector<std::string>> Game::commands = {
 	{"exit",		{}}
 };
 
-void	Game::start()
-{
-
-}
-
-void	Game::executeCommand(const std::vector<std::string> &command)
+int	Game::executeCommand(const std::vector<std::string> &command)
 {
 	if (command[0] == "exit")
 		exit = true;
+	else if (command[0] == "list" && command.size() == 1)
+		list();
+	else if (command[0] == "list" && command.size() == 3)
+		return list(toInt(command[1]), toInt(command[2]));
+	return 0;
 }
 
 bool	Game::validateArgsFormat(const std::vector<std::string> &command)

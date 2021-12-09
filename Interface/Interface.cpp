@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Interface.h"
 #include "../utils/utils.h"
-#include "../error/error.h"
+#include "../errors/errors.h"
 
 void	Interface::menu()
 {
@@ -33,6 +33,7 @@ void	Interface::start()
 	while (!game->exit)
 	{
 		std::cout << game->island->getAsString();
+		std::cout << game->command_output;
 		command = getCommand();
 		game->executeCommand(command);
 	}
