@@ -1,13 +1,14 @@
 NAME = game
 
 SOURCES =	Interface/Interface.cpp \
-		command/command.cpp \
 		utils/utils.cpp \
 		main.cpp \
 		Island/Island.cpp \
 		Building/Building.cpp \
 		Zone/Zone.cpp \
 		Zone/Forest.cpp \
+		Game/Game.cpp \
+		error/error.cpp \
 
 OBJECTS = $(patsubst %.cpp, .obj/%.o, $(SOURCES))
 
@@ -25,11 +26,12 @@ $(NAME): $(OBJECTS)
 	@mkdir -p .obj
 	@mkdir -p .obj/Interface
 	@mkdir -p .obj/Building
-	@mkdir -p .obj/command
 	@mkdir -p .obj/Island
 	@mkdir -p .obj/Worker
 	@mkdir -p .obj/utils
 	@mkdir -p .obj/Zone
+	@mkdir -p .obj/Game
+	@mkdir -p .obj/error
 	@echo Compiling $@...
 	@$(CC) -c -o $@ $< $(CFLAGS)
 

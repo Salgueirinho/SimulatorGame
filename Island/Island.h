@@ -5,10 +5,10 @@
 
 class Island {
 	public:
-		Island();
+		Island(int rows, int columns);
 		~Island();
 		void randomizeZones();
-		void displayZones() const;
+		std::string	getAsString() const;
 	private:
 		int	rows;
 		int	columns;

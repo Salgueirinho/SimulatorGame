@@ -1,31 +1,10 @@
 #include <iostream>
 #include "Interface.h"
-#include "../command/command.h"
 #include "../Island/Island.h"
 #include "../utils/utils.h"
+#include "../error/error.h"
 
-std::map<std::string, std::vector<std::string>> Interface::commands = {
-	{"exec",		{"nomeFicheiro"}},
-	{"cons",		{"tipo", "linha", "coluna"}},
-	{"liga",		{"linha", "coluna"}},
-	{"des",			{"linha", "coluna"}},
-	{"move",		{"id", "linha", "coluna"}},
-	{"vende",		{"tipo", "quanto"}},
-	{"cont",		{"tipo"}},
-	{"list",		{"linha", "coluna"}},
-	{"vende",		{"linha", "coluna"}},
-	{"next",		{}},
-	{"save",		{"nome"}},
-	{"load",		{"nome"}},
-	{"apaga",		{"ficheiro"}},
-	{"config",	{"valor"}},
-	{"debcash",	{"valor"}},
-	{"debed",		{"tipo", "linha", "coluna"}},
-	{"debkill",	{"id"}},
-	{"exit",		{}}
-};
-
-void	Interface::start()
+void	Interface::menu()
 {
 	std::string option; 
 
@@ -34,7 +13,7 @@ void	Interface::start()
 		displayFile("textfiles/mainmenu.txt");
 		option = getOption({"play", "info", "exit"}, "Option: ");
 		if (option == "play")
-			game();
+			start();
 		else if (option == "info")
 		{
 			displayFile("textfiles/info.txt");
@@ -44,16 +23,38 @@ void	Interface::start()
 	std::cout << "See you next time!" << std::endl;
 }
 
-void	Interface::game()
+void	Interface::start()
 {
-	std::vector<std::string>	command = {""};
-
-	Island	island;
-	while (command[0] != "exit")
+	int	rows = getNumberBetween(3, 8, "Rows for the island, please: ");
+	int	columns = getNumberBetween(3, 16, "Columns for the island, please: ");
+	Island island(rows, columns);
+	game->island = &island;
+	game->exit = false;
+	std::vector<std::string>	command;
+	while (!game->exit)
 	{
-		island.displayZones();
+		std::cout << game->island->getAsString();
 		command = getCommand();
-		if (command[0] != "exit")
-			executeCommand(command);
+		game->executeCommand(command);
 	}
+}
+
+std::vector<std::string>	Interface::getCommand()
+{
+	std::string	buffer;
+	int	error_code = 1;
+	std::vector<std::string>	command;
+
+	while (error_code)
+	{
+		std::cout << "Command: ";
+		std::getline(std::cin, buffer);
+		if (!buffer.empty())
+		{
+			command = split(buffer);
+			error_code = game->checkCommand(command);
+			std::cout << parseErrorCode(error_code);
+		}
+	}
+	return command;
 }
