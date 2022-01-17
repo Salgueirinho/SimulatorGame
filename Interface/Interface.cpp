@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Interface.h"
-#include "../utils/utils.h"
+//#include "../utils/utils.h"
 #include "../errors/errors.h"
 
 void	Interface::menu()
@@ -29,14 +29,36 @@ void	Interface::start()
 	Island island(rows, columns);
 	game->island = &island;
 	game->exit = false;
+    game->day = 1;
+    game->time_of_day = "Morning";
+    game->resources.cash = 200;
 	std::vector<std::string>	command;
 	while (!game->exit)
 	{
-		std::cout << game->island->getAsString();
-		std::cout << game->command_output;
-		command = getCommand();
-		game->executeCommand(command);
-	}
+    game->command_output = "";
+    game->checkEndOfGame();
+    std::cout << game->getEssentialInfo();
+
+    if (game->time_of_day == "Morning")
+    {
+        std::cout << "Simulating Morning..." << std::endl;
+        game->simulateMorning(game->day);
+        game->nextTimeOfDay();
+    }
+    else if(game->time_of_day == "Noon")
+    {
+        command = getCommand();
+        game->executeCommand(command);
+        std::cout << game->command_output << std::endl;
+    }
+    else if (game->time_of_day == "Dusk")
+    {
+        std::cout << "Simulating Dusk..." << std::endl;
+        game->simulateDusk(game->day);
+        game->nextTimeOfDay();
+    }
+    std::cout << game->island->getAsString();
+  }
 }
 
 std::vector<std::string>	Interface::getCommand()

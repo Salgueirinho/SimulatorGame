@@ -1,41 +1,11 @@
-#include <random>
-#include "Forest.h"
+#include "ZoneX.h"
 
-Forest::Forest()
+void ZoneX::work(Resources &resources, int day)
 {
-	std::mt19937	rng(std::random_device{}());
-	std::uniform_int_distribution<int> gen(20, 40);
-	trees = gen(rng);
-}
-
-void Forest::growTrees(const int day)
-{
-  if (trees < 100 && getBuilding() == nullptr)
-  {
-    if((day + 1) % 2 == 0)
-    {
-      trees++;
-    }
-  }
-}
-
-void Forest::handleBuildingExistence()
-{
-  if (getBuilding())
-  {
-    trees--;
-  }
-}
-
-void Forest::work(Resources& resources, int day)
-{
-  wood += getNumberOfWorkers('L');
-  growTrees(day);
-  handleBuildingExistence();
-
   if(getBuilding() != nullptr)
   {
     std::string building_type = getBuilding()->getType();
+
     if(building_type == "mnF")
     {
       getBuilding()->work(resources, day, getNumberOfWorkers('M'));

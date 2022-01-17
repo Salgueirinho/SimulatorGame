@@ -17,6 +17,25 @@ void displayFile(const std::string& filepath)
 	fs.close();
 }
 
+std::vector<std::string> readFile(const std::string& filepath)
+{
+  std::string line;
+  std::ifstream fs;
+  std::vector<std::string> string_vector;
+  fs.open(filepath);
+  if(!fs)
+  {
+    std::cout << "Unable to open file \"" << filepath << "\"." << std::endl;
+    return {};
+  }
+  while(std::getline(fs, line))
+    string_vector.push_back(line);
+  fs.close();
+  return string_vector;
+
+
+}
+
 std::string	getOption(std::vector<std::string> options, const std::string& question)
 {
 	std::string option;
@@ -91,3 +110,4 @@ float	toFloat(const std::string &str)
 	else
 		return num;
 }
+

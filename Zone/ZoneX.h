@@ -7,6 +7,7 @@ class ZoneX : public Zone{
 	public:
 		std::string getType() const override {return "znZ";};
 		~ZoneX() override = default;
+    void work(Resources& resources, int day) override;
 };
 
 #endif

@@ -11,6 +11,9 @@
 #include "../Building/Battery.h"
 #include "../Building/Foundry.h"
 #include "../Building/BuildingX.h"
+#include "../Building/Sawmill.h"
+#include <iostream>
+
 
 std::string	Zone::getWorkers() const
 {
@@ -23,30 +26,49 @@ std::string	Zone::getWorkers() const
 	return temp;
 }
 
-int	Zone::getNumberOfWorkers() const
+int	Zone::getNumberOfWorkers(char workers_type) const
 {
-	return (int) workers.size();
+  if(workers_type == ' ')
+	  return (int) workers.size();
+  else
+  {
+    int n = 0;
+    for (auto worker : workers)
+    {
+      if (worker->getType() == workers_type)
+        n++;
+    }
+    return n;
+  }
 }
 
-Building	*Zone::getBuilding() const
+Building	*Zone::getBuilding()
 {
 	return building;
 }
 
-void	Zone::setBuilding(std::string &buildingType)
+void Zone::removeBuilding()
 {
-	if (buildingType == "mnF")
-		building = new IronMine;
-	else if (buildingType == "mnC")
-		building = new CoalMine;
-	else if (buildingType == "cen")
-		building = new PowerPlant;
-	else if (buildingType == "bat")
-		building = new Battery;
-	else if (buildingType == "fun")
-		building = new Foundry;
-	else
-		building = new BuildingX;
+  delete building;
+  building = nullptr;
+}
+
+void	Zone::setBuilding(const std::string &buildingType, int day)
+{
+    if (buildingType == "mnF")
+      building = new IronMine(day);
+    else if (buildingType == "mnC")
+      building = new CoalMine(day);
+    else if (buildingType == "cen")
+      building = new PowerPlant(day);
+    else if (buildingType == "bat")
+      building = new Battery(day);
+    else if (buildingType == "fun")
+      building = new Foundry(day);
+    else if (buildingType == "ser")
+      building = new Sawmill(day);
+    else
+      building = new BuildingX(day);
 }
 
 Zone::~Zone()
@@ -70,4 +92,127 @@ Zone	*createZone(const std::string &zoneType)
 		return new Swamp;
 	else
 		return new ZoneX;
+}
+
+int Zone::isWorkerHere(const float id) const
+{
+  int pos = 0;
+  for (auto worker : workers)
+  {
+    if (worker->getID() == id)
+    {
+      return pos;
+    }
+    pos++;
+  }
+  return -1;
+}
+
+void Zone::addWorker(Worker *worker)
+{
+  this->workers.push_back(worker);
+}
+
+Worker* Zone::removeWorker(const float id)
+{
+  Worker *temp;
+  for (int i = 0; i < (int)workers.size(); i++)
+  {
+    if (workers[i]->getID() == id)
+    {
+      temp = workers[i];
+      this->workers.erase(workers.begin() + i);
+      return temp;
+    }
+  }
+  return nullptr;
+}
+void Zone::removeAllWorkers()
+{
+  for (auto worker:workers)
+  {
+    delete worker;
+  }
+  workers.clear();
+}
+void Zone::handleQuitingWorkers(const int day)
+{
+  int worker_first_day;
+  int zone_effect = 0;
+
+  if (this->getType() == "mnt")
+  {
+    zone_effect = 5;
+  }
+
+  for(auto worker: workers)
+  {
+    worker_first_day = worker->getHiringDay();
+    if(worker->getType() == 'O' && day - worker_first_day >= 10)
+    {
+      if(rand() % 101 <= zone_effect + worker->getProbabilityOfQuiting())
+      {
+        std::cout << "Operator quitting" << std::endl;
+        delete removeWorker(worker->getID());
+        break;
+      }
+    }
+    if(worker->getType() == 'M' && day - worker_first_day >= 2)
+    {
+      if(rand() % 101 <= zone_effect + worker->getProbabilityOfQuiting())
+      {
+        std::cout << "Miner quitting" << std::endl;
+        delete removeWorker(worker->getID());
+        break;
+      }
+    }
+    if(worker->getType() == 'L' && getType() == "mnt")
+    {
+      if(rand() % 101 <= zone_effect)
+      {
+        std::cout << "Lumberjack quitting" << std::endl;
+        delete removeWorker(worker->getID());
+        break;
+      }
+    }
+  }
+}
+
+bool Zone::isWorkerMoveAvailable(const int pos)
+{
+  if (this->getNumberOfWorkers() >= 1 && workers[pos]->getMovesLeft() >= 1)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+void Zone::changeWorkerMovesLeft(const int pos)
+{
+  if (this->getNumberOfWorkers() >= 1 && pos >= 0)
+  {
+    workers[pos]->changeMovesLeft();
+  }
+}
+
+void Zone::resetWorkersMovesLeft()
+{
+  for (auto worker:workers)
+  {
+    worker->resetMovesLeft();
+  }
+}
+
+int Zone::sellBuilding(std::map<std::string, int> prices)
+{
+  int sell_price=0;
+  if (building != nullptr)
+  {
+    sell_price = prices[building->getType()];
+    sell_price += building->sellAllResources();
+    removeBuilding();
+  }
+  return sell_price;
 }

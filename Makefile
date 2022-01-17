@@ -5,8 +5,21 @@ SOURCES =	Interface/Interface.cpp \
 		main.cpp \
 		Island/Island.cpp \
 		Building/Building.cpp \
+		Building/IronMine.cpp \
+		Building/CoalMine.cpp \
+		Building/PowerPlant.cpp \
+		Building/Battery.cpp \
+		Building/Foundry.cpp \
+		Building/Sawmill.cpp \
+		Building/BuildingX.cpp \
 		Zone/Zone.cpp \
 		Zone/Forest.cpp \
+		Zone/ZoneX.cpp \
+		Zone/Desert.cpp \
+		Zone/Pasture.cpp \
+		Zone/Swamp.cpp \
+		Zone/Mountain.cpp \
+		Worker/Worker.cpp \
 		Game/Game.cpp \
 		Game/commands.cpp \
 		errors/errors.cpp \
@@ -42,4 +55,6 @@ clean:
 fclean: clean
 	@rm -rf .obj
 
-re: fclean all
+re:
+	@make fclean
+	@make all

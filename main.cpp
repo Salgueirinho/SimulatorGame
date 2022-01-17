@@ -4,7 +4,7 @@
 int	main()
 {
 	Game	game;
-	Interface	interface(&game);
-	interface.menu();
-	return 0;
+  Interface	interface(&game);
+  interface.menu();
+  return 0;
 }
